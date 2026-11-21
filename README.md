@@ -29,6 +29,20 @@ Premium Next.js rebuild of https://www.modernfurniturepacificltd.com/, based on 
 ## The site (`site/` — Next.js 16, App Router, Tailwind 4)
 
 - `/` — hero (template layout), Our Collections grid, New arrivals, Best sellers, About, showrooms
+- **v3 homepage (21 Nov 2026, after the watermark audit):** the homepage is now
+  clean and visual only. Watermark audit of all 183 product photos: every one
+  carries the logo stamp (centre on indoor shots, small corner on outdoor
+  shots); only the 4 site banner images (`header.png`, `chair.jpg`, `mf22.jpg`,
+  `mf237.jpg`) are truly stamp-free. For 8 outdoor products the corner stamp
+  was cropped off (bottom 22%) into `site/public/images/clean/` (1600px) and
+  the homepage uses ONLY those 8 + the 4 site images (`displayImage()` in
+  `site/src/lib/data.ts`). Featured pieces are in-stock clean ones only
+  (Benin, Nova, Urban Nest, Juventus, Modena, Retractable). No search, stats,
+  stock counts or detail text on the homepage — all details live on the
+  product detail pages. Each section ends in one primary orange action button.
+  Note: outdoor clean shots still show the shopfront in the background; and
+  the shop / detail pages still show the original watermarked photos for the
+  other 27 products until Murage supplies clean re-shoots.
 - `/shop` — all 35 products, search + category / collection / in-stock filters (server-side, `?q=&category=&badge=&instock=`)
 - `/products/[handle]` — 35 static pages, gallery, variants, WhatsApp order, call
 - `/collections` — real collections only

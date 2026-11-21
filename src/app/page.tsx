@@ -1,36 +1,57 @@
 import Link from "next/link";
-import { products, business, formatKES, productByHandle } from "@/lib/data";
+import { business, displayImage, productByHandle, whatsappLink } from "@/lib/data";
 import ProductCard from "@/components/ProductCard";
 
-const heroSofa = productByHandle("modern-celine-chester-7seater-sofa-3-2-1-1");
-const living = productByHandle("modern-copenhagen-7seater-corduroy-sofa");
-const bedroom = productByHandle("modern-deluxe-solid-bed-5x6");
-const dining = productByHandle("regal-oval-mahogany-dining-set");
-const tables = productByHandle("elegant-coffee-table-white");
-const tv = productByHandle("modern-black-peachy-tv-stands");
-const bliss = productByHandle("7-seater-semi-recliner-back");
+// Homepage rule: clean and visual only. Every image here is stamp-free —
+// either one of the 4 clean site images or a cropped clean product photo
+// (see displayImage in lib/data.ts). No search, no stats, no stock counts,
+// no detail text: all of that lives on the shop / detail pages. Each section
+// ends in one primary action button.
 
-const newArrivals = products.filter((p) => p.isNew).slice(0, 8);
-const bestSellers = products.filter((p) => p.isBestSeller).slice(0, 8);
-const inStock = products.filter((p) => p.inStock).length;
+const hero = productByHandle("nova-sofa-set");
+const living = productByHandle("benin-sofa");
+// Cozy is sold out, so it is not a featured piece — but its clean photo has
+// the calmest background, so it is used here only as the Sofas tile visual.
+const sofas = productByHandle("cozy-sofa");
 
-function CollectionTile({
-  title, count, href, img, tall,
-}: { title: string; count: number; href: string; img?: string; tall?: boolean }) {
+// In-stock, stamp-free pieces only — nothing sold out on the homepage.
+const featured = ["benin-sofa", "nova-sofa-set", "urban-nest-sofa-set", "juventus-sofa-set", "modena-sofa-set", "retractable-sofa"]
+  .map((h) => productByHandle(h))
+  .filter((p): p is NonNullable<typeof p> => !!p && p.inStock);
+
+function PrimaryButton({ href, children, white }: { href: string; children: React.ReactNode; white?: boolean }) {
   return (
-    <Link href={href}
-      className={`group relative block rounded-[2rem] overflow-hidden bg-brand text-white ${tall ? "row-span-2 min-h-[420px]" : "min-h-[240px]"}`}>
+    <Link
+      href={href}
+      className={`inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-bold transition-colors ${
+        white ? "bg-white text-brand hover:bg-peach" : "bg-brand text-white hover:bg-brand-dark"
+      }`}
+    >
+      {children} <span aria-hidden>↗</span>
+    </Link>
+  );
+}
+
+function CollectionTile({ title, href, img }: { title: string; href: string; img?: string }) {
+  return (
+    <Link
+      href={href}
+      className="group relative block rounded-[2rem] overflow-hidden bg-brand text-white min-h-[300px]"
+    >
       {img && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={img} alt={title} loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500" />
+        <img
+          src={img}
+          alt={title}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/90 via-brand/30 to-transparent" />
-      <div className="relative p-6 flex flex-col justify-end h-full">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+      <div className="relative p-6 flex flex-col justify-end h-full min-h-[300px]">
         <h3 className="text-2xl font-extrabold leading-tight">{title}</h3>
-        <p className="text-white/85 text-sm mt-1">{count} {count === 1 ? "piece" : "pieces"}</p>
-        <span className="mt-4 inline-flex w-fit items-center gap-1 bg-white text-brand text-sm font-bold px-4 py-2 rounded-full group-hover:gap-2 transition-all">
-          Explore more »
+        <span className="mt-4 inline-flex w-fit items-center gap-1 bg-white text-brand text-sm font-bold px-4 py-2 rounded-full">
+          Explore <span aria-hidden>»</span>
         </span>
       </div>
     </Link>
@@ -40,122 +61,109 @@ function CollectionTile({
 export default function Home() {
   return (
     <div>
-      {/* Hero — template: orange curve, sofa left, headline right */}
+      {/* Hero — one clean visual, one headline, two actions */}
       <section className="relative overflow-hidden">
-        <div className="absolute -top-32 -left-32 w-[42rem] h-[42rem] bg-brand rounded-full opacity-100" aria-hidden />
-        <div className="absolute top-0 right-0 w-2/3 h-full bg-peach -skew-y-3 origin-top-right" aria-hidden />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-8 grid md:grid-cols-2 gap-10 items-center">
+        <div className="absolute -top-32 -left-32 w-[42rem] h-[42rem] bg-brand rounded-full" aria-hidden />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-12 grid md:grid-cols-2 gap-10 items-center">
           <div className="relative">
-            {heroSofa && (
+            {hero && (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={heroSofa.images[0]} alt={heroSofa.title}
-                className="relative rounded-[2.5rem] w-full aspect-[4/3] object-cover shadow-2xl" />
+              <img
+                src={displayImage(hero)}
+                alt={hero.title}
+                className="relative rounded-[2.5rem] w-full aspect-[4/3] object-cover shadow-2xl"
+              />
             )}
-            <p className="relative mt-4 inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 text-sm font-semibold shadow">
-              {inStock} of {products.length} pieces in stock now
-            </p>
           </div>
           <div>
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-brand leading-[1.05]">Make you<br />feel luxury</h1>
+            <h1 className="text-5xl sm:text-6xl font-extrabold text-brand leading-[1.05]">
+              Make you<br />feel luxury
+            </h1>
             <p className="mt-5 text-muted leading-relaxed max-w-md">
-              Sofas, beds, dining sets and tables for Kenyan homes, from {formatKES(6000)} to {formatKES(260000)}.
-              See them in person at our showrooms in Ruiru, Kihunguro and Nyeri, or order on WhatsApp.
+              Sofas, beds, dining sets and tables for Kenyan homes. See them in person, or order on WhatsApp.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/shop" className="rounded-full bg-brand text-white px-6 py-3 font-bold hover:bg-brand-dark transition-colors">Shop now ↗</Link>
-              <Link href="/collections" className="rounded-full bg-white border border-brand/30 px-6 py-3 font-bold hover:border-brand transition-colors">Browse collections</Link>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <PrimaryButton href="/shop">Shop now</PrimaryButton>
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-white border border-brand/30 px-7 py-3.5 font-bold hover:border-brand transition-colors"
+              >
+                Chat on WhatsApp <span aria-hidden>↗</span>
+              </a>
             </div>
-            <form action="/shop" method="get" className="mt-6 flex max-w-md bg-white rounded-full p-1.5 shadow-sm border border-peach-dark">
-              <input name="q" placeholder="What are you looking for?" aria-label="Search furniture"
-                className="flex-1 min-w-0 bg-transparent px-4 outline-none text-sm" />
-              <button className="rounded-full bg-brand text-white px-5 py-2 text-sm font-bold">Search</button>
-            </form>
-            <dl className="mt-8 grid grid-cols-3 max-w-md divide-x divide-peach-dark text-center">
-              <div><dt className="sr-only">Products</dt><dd className="text-2xl font-extrabold text-brand">{products.length}</dd><dd className="text-xs text-muted">Products</dd></div>
-              <div><dt className="sr-only">Showrooms</dt><dd className="text-2xl font-extrabold text-brand">3</dd><dd className="text-xs text-muted">Showrooms</dd></div>
-              <div><dt className="sr-only">Delivery</dt><dd className="text-2xl font-extrabold text-brand">7 days</dd><dd className="text-xs text-muted">Return policy</dd></div>
-            </dl>
           </div>
         </div>
       </section>
 
-      {/* Our Collections — template grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-10">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-center">Our <span className="text-brand underline decoration-4 underline-offset-8">Collections</span></h2>
-        <div className="mt-8 grid md:grid-cols-2 gap-5">
-          <CollectionTile title="Living Room" count={18} href="/shop?category=Living%20Room" img={living?.images[0]} />
-          <CollectionTile title="Bedroom" count={9} href="/shop?category=Bedroom" img={bedroom?.images[0]} tall />
-          <CollectionTile title="Dining Sets" count={5} href="/shop?category=Dining" img={dining?.images[0]} />
+      {/* Our Collections — visual tiles, one action each */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-center">
+          Our <span className="text-brand underline decoration-4 underline-offset-8">Collections</span>
+        </h2>
+        <div className="mt-8 grid sm:grid-cols-2 gap-5">
+          <CollectionTile title="Living Room" href="/shop?category=Living%20Room" img={living ? displayImage(living) : undefined} />
+          <CollectionTile title="Bedroom" href="/shop?category=Bedroom" img="/images/site/header.png" />
+          <CollectionTile title="Sofas" href="/shop?category=Living%20Room" img={sofas ? displayImage(sofas) : undefined} />
+          <CollectionTile title="All Furniture" href="/shop" img="/images/site/chair.jpg" />
         </div>
-        <div className="mt-5 grid sm:grid-cols-3 gap-5">
-          <CollectionTile title="Tables" count={3} href="/shop?category=Tables" img={tables?.images[0]} />
-          <CollectionTile title="TV Stands" count={1} href={`/products/${tv?.handle}`} img={tv?.images[0]} />
-          <CollectionTile title="Best Sellers" count={17} href="/shop?badge=best" img={bliss?.images[0]} />
-        </div>
-      </section>
-
-      {/* New arrivals */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-14">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="text-3xl font-extrabold">New arrivals</h2>
-          <Link href="/shop?badge=new" className="text-brand font-bold text-sm whitespace-nowrap">View all →</Link>
-        </div>
-        <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-5">
-          {newArrivals.map((p) => <ProductCard key={p.handle} product={p} />)}
+        <div className="mt-8 text-center">
+          <PrimaryButton href="/collections">Browse all collections</PrimaryButton>
         </div>
       </section>
 
-      {/* Best sellers */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-14">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="text-3xl font-extrabold">Best sellers</h2>
-          <Link href="/shop?badge=best" className="text-brand font-bold text-sm whitespace-nowrap">View all →</Link>
+      {/* Featured pieces — image, name, price, one action each */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-16">
+        <h2 className="text-3xl font-extrabold text-center">Featured pieces</h2>
+        <div className="mt-8 grid grid-cols-2 lg:grid-cols-3 gap-5">
+          {featured.map((p) => (
+            <ProductCard key={p.handle} product={p} />
+          ))}
         </div>
-        <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-5">
-          {bestSellers.map((p) => <ProductCard key={p.handle} product={p} />)}
+        <div className="mt-8 text-center">
+          <PrimaryButton href="/shop">View all furniture</PrimaryButton>
         </div>
       </section>
 
-      {/* About — template About Us block */}
+      {/* About — one clean image, two lines, one action */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-16">
         <h2 className="text-3xl font-extrabold text-center text-brand">About Us</h2>
         <div className="mt-8 grid md:grid-cols-2 gap-8 items-center">
           <div>
             <p className="leading-relaxed text-muted">
-              Modern Furniture Pacific Ltd believes furniture is more than functional. It is the comfort
-              you come home to, the table your family gathers around, and the bed you rest in after a long day.
+              Modern Furniture Pacific Ltd believes furniture is more than functional. It is the comfort you come home to.
             </p>
-            <p className="leading-relaxed text-muted mt-4">
-              Visit any of our three showrooms — {business.showrooms.map((s) => `${s.name} (${s.location})`).join(", ")} —
-              call {business.phone.join(" or ")}, or message us on WhatsApp and we will help you choose the right piece.
-            </p>
-            <Link href="/about" className="mt-6 inline-flex rounded-full bg-brand text-white px-5 py-2.5 font-bold hover:bg-brand-dark transition-colors">Explore more ↗</Link>
+            <div className="mt-6">
+              <PrimaryButton href="/about">More about us</PrimaryButton>
+            </div>
           </div>
           <div className="rounded-[2rem] overflow-hidden bg-brand">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/site/header.png" alt="Modern Furniture Pacific showroom bedroom" className="w-full aspect-[16/9] object-cover" />
+            <img src="/images/site/mf237.jpg" alt="Modern Furniture Pacific showroom bedroom" className="w-full aspect-[16/10] object-cover" />
           </div>
         </div>
       </section>
 
-      {/* Showrooms / trust */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-14">
-        <div className="grid sm:grid-cols-3 gap-5">
-          {business.showrooms.map((s) => (
-            <div key={s.name} className="bg-white rounded-3xl border border-peach p-6">
-              <p className="font-extrabold">{s.name}</p>
-              <p className="text-muted text-sm mt-1">{s.location}</p>
-              <p className="text-sm mt-3">{business.hours}</p>
-              <a href={`https://wa.me/254716335555?text=${encodeURIComponent(`Hi, I'd like to visit the ${s.name} showroom.`)}`} target="_blank" rel="noreferrer" className="text-brand font-bold text-sm mt-3 inline-block">Chat on WhatsApp →</a>
-            </div>
-          ))}
-        </div>
-        <div className="mt-5 bg-brand text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <p className="text-2xl font-extrabold">Free in-store pickup</p>
-            <p className="text-white/85 text-sm mt-1">Order online, collect at any showroom. Delivery available across Kenya.</p>
+      {/* Visit — one banner, one action */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-4">
+        <div className="bg-brand text-white rounded-3xl p-6 sm:p-10 text-center">
+          <p className="text-2xl sm:text-3xl font-extrabold">See it in person</p>
+          <p className="text-white/85 mt-2">Ruiru · Kihunguro · Nyeri</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <PrimaryButton href="/contact" white>
+              Visit a showroom
+            </PrimaryButton>
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-white/15 border border-white/40 px-7 py-3.5 font-bold hover:bg-white/25 transition-colors"
+            >
+              Chat on WhatsApp <span aria-hidden>↗</span>
+            </a>
           </div>
-          <Link href="/shop" className="shrink-0 rounded-full bg-white text-brand px-6 py-3 font-bold">Shop now ↗</Link>
+          <p className="text-white/70 text-sm mt-5">Call {business.phone.join(" or ")}</p>
         </div>
       </section>
     </div>
