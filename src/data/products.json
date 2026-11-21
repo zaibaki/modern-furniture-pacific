@@ -1,0 +1,1635 @@
+{
+  "business": {
+    "name": "Modern Furniture Pacific Ltd",
+    "tagline": "Make you feel luxury",
+    "phone": [
+      "0716 335555",
+      "0748 486829"
+    ],
+    "whatsapp": "+254716335555",
+    "email": "info@modernfurniturepacificltd.com",
+    "hours": "Mon-Sat 9:00am-10:00pm, Sun 10:00am-6:00pm",
+    "showrooms": [
+      {
+        "name": "Nairobi Showroom | HQ",
+        "location": "Ruiru, Behind Spur Mall"
+      },
+      {
+        "name": "Kihunguro Branch",
+        "location": "Kihunguro"
+      },
+      {
+        "name": "Nyeri Showroom",
+        "location": "Nyeri"
+      }
+    ],
+    "source": "https://www.modernfurniturepacificltd.com/",
+    "fetched": "2026-11-21",
+    "note": "All 35 products and 183 images fetched from the live Shopify store. Prices in KES as listed. Titles lightly cleaned (casing, POCKER->POCKET); 'Austic' kept as listed."
+  },
+  "collections": [
+    {
+      "handle": "living-room",
+      "title": "Living Room",
+      "count": 18
+    },
+    {
+      "handle": "bedroom-1",
+      "title": "Bedroom",
+      "count": 9
+    },
+    {
+      "handle": "bedroom",
+      "title": "Dining",
+      "count": 5
+    },
+    {
+      "handle": "tables",
+      "title": "Tables",
+      "count": 6
+    },
+    {
+      "handle": "dressing-table",
+      "title": "Dressing Tables",
+      "count": 2
+    }
+  ],
+  "products": [
+    {
+      "id": 7571330236499,
+      "handle": "elegant-coffee-table-white",
+      "title": "Elegant Coffee Table White",
+      "originalTitle": "Elegant Coffee Table White",
+      "type": "Tables",
+      "category": "Tables",
+      "collections": [
+        "best-sellers",
+        "frontpage",
+        "living-room",
+        "new-arrivals",
+        "shop",
+        "tables"
+      ],
+      "isNew": true,
+      "isBestSeller": true,
+      "vendor": "Mordern Furniture Pacific",
+      "description": "Coffee Table White",
+      "priceMin": 6000,
+      "priceMax": 40000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Full set",
+          "price": 40000,
+          "available": true
+        },
+        {
+          "option": "Coffee Table only",
+          "price": 25000,
+          "available": true
+        },
+        {
+          "option": "1 x Stool",
+          "price": 6000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/elegant-coffee-table-white-1.webp",
+        "/images/products/elegant-coffee-table-white-2.webp",
+        "/images/products/elegant-coffee-table-white-3.webp",
+        "/images/products/elegant-coffee-table-white-4.webp",
+        "/images/products/elegant-coffee-table-white-5.webp",
+        "/images/products/elegant-coffee-table-white-6.webp"
+      ],
+      "imageCount": 6,
+      "url": "https://www.modernfurniturepacificltd.com/products/elegant-coffee-table-white"
+    },
+    {
+      "id": 7906658353235,
+      "handle": "6x6-pacific-pocker-spring-mattress",
+      "title": "6x6 Pacific Pocket Spring Mattress",
+      "originalTitle": "6x6 PACIFIC  POCKER SPRING MATTRESS",
+      "type": "Bed",
+      "category": "Bedroom",
+      "collections": [
+        "bedroom-1"
+      ],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "\u2022 Individual Support: Unlike traditional spring mattresses where the springs are all connected, pocket springs are each housed in their own fabric pocket. This allows them to move independently, contouring to your body and providing support right where you need it. This is great for maintaining good posture while you sleep. \ue000 \u2022 No More Bouncing: A big plus for pocket spring mattresses is that they reduce motion transfer. So, if you share your bed, you're less likely to be disturbed when your partner tosses and turns. \ue001 \u2022 Durability: These mattresses are often marketed as being very durable. In",
+      "priceMin": 23000,
+      "priceMax": 37000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "5x6x10",
+          "price": 37000,
+          "available": true
+        },
+        {
+          "option": "4x6x10",
+          "price": 26000,
+          "available": false
+        },
+        {
+          "option": "3.5x6x10",
+          "price": 23000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/6x6-pacific-pocker-spring-mattress-1.jpg",
+        "/images/products/6x6-pacific-pocker-spring-mattress-2.jpg",
+        "/images/products/6x6-pacific-pocker-spring-mattress-3.jpg",
+        "/images/products/6x6-pacific-pocker-spring-mattress-4.jpg"
+      ],
+      "imageCount": 4,
+      "url": "https://www.modernfurniturepacificltd.com/products/6x6-pacific-pocker-spring-mattress"
+    },
+    {
+      "id": 7902643388499,
+      "handle": "nova-sofa-set",
+      "title": "Nova Sofa Set",
+      "originalTitle": "NOVA SOFA SET",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "living-room"
+      ],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "",
+      "priceMin": 25000,
+      "priceMax": 95000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "5seater",
+          "price": 95000,
+          "available": true
+        },
+        {
+          "option": "3seater",
+          "price": 45000,
+          "available": false
+        },
+        {
+          "option": "2seater",
+          "price": 45000,
+          "available": false
+        },
+        {
+          "option": "1seater",
+          "price": 25000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/nova-sofa-set-1.jpg",
+        "/images/products/nova-sofa-set-2.jpg",
+        "/images/products/nova-sofa-set-3.jpg",
+        "/images/products/nova-sofa-set-4.jpg"
+      ],
+      "imageCount": 4,
+      "url": "https://www.modernfurniturepacificltd.com/products/nova-sofa-set"
+    },
+    {
+      "id": 7902642569299,
+      "handle": "urban-nest-sofa-set",
+      "title": "Urban Nest Sofa Set",
+      "originalTitle": "URBAN NEST SOFA SET",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Elegant Single-Seater Lounge Chairs \u2013 Comfort Meets Modern Style Upgrade your living space with these beautifully designed single-seater lounge chairs from Modern Furniture Pacific. Crafted with a sleek modern silhouette, these chairs feature plush cushioning, supportive armrests, and durable upholstery that offers both comfort and long-lasting quality. The neutral two-tone fabric blends effortlessly with different interior styles, making them perfect for living rooms, offices, lounges, or reception areas. Supported by sturdy metal legs, the chairs provide stability while adding a contemporary",
+      "priceMin": 25000,
+      "priceMax": 90000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "5seater",
+          "price": 90000,
+          "available": true
+        },
+        {
+          "option": "3seater",
+          "price": 45000,
+          "available": false
+        },
+        {
+          "option": "2seater",
+          "price": 45000,
+          "available": false
+        },
+        {
+          "option": "1seater",
+          "price": 25000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/urban-nest-sofa-set-1.jpg",
+        "/images/products/urban-nest-sofa-set-2.jpg",
+        "/images/products/urban-nest-sofa-set-3.jpg",
+        "/images/products/urban-nest-sofa-set-4.jpg"
+      ],
+      "imageCount": 4,
+      "url": "https://www.modernfurniturepacificltd.com/products/urban-nest-sofa-set"
+    },
+    {
+      "id": 7571362283603,
+      "handle": "brown-recliner-7-seater",
+      "title": "Brown Semi Recliner 7 Seater",
+      "originalTitle": "Brown semi recliner 7 Seater",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "living-room",
+        "new-arrivals",
+        "shop"
+      ],
+      "isNew": true,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Brown Recliner 7 Seater",
+      "priceMin": 30000,
+      "priceMax": 145000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "7 Seater",
+          "price": 145000,
+          "available": true
+        },
+        {
+          "option": "3 Seater",
+          "price": 55000,
+          "available": true
+        },
+        {
+          "option": "2 Seater",
+          "price": 50000,
+          "available": true
+        },
+        {
+          "option": "1 Seater",
+          "price": 30000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/brown-recliner-7-seater-1.webp",
+        "/images/products/brown-recliner-7-seater-2.webp",
+        "/images/products/brown-recliner-7-seater-3.webp",
+        "/images/products/brown-recliner-7-seater-4.webp",
+        "/images/products/brown-recliner-7-seater-5.webp"
+      ],
+      "imageCount": 5,
+      "url": "https://www.modernfurniturepacificltd.com/products/brown-recliner-7-seater"
+    },
+    {
+      "id": 7571327287379,
+      "handle": "7-seater-semi-recliner-back",
+      "title": "Modern Blissblend 7 Seater Microfiber Sofa",
+      "originalTitle": "Modern blissblend 7seater microfiber sofa",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "best-sellers",
+        "frontpage",
+        "living-room",
+        "new-arrivals",
+        "shop"
+      ],
+      "isNew": true,
+      "isBestSeller": true,
+      "vendor": "Mordern Furniture Pacific",
+      "description": "Has a sturdy, durable frame to withstand daily use, supportive seats, back and armrest for maximum relaxation 7 Seater semi recliner back *partitioning* with spring cushion (3+2+1+1)",
+      "priceMin": 30000,
+      "priceMax": 150000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "7 Seater",
+          "price": 150000,
+          "available": true
+        },
+        {
+          "option": "3 Seater",
+          "price": 50000,
+          "available": true
+        },
+        {
+          "option": "2 Seater",
+          "price": 50000,
+          "available": true
+        },
+        {
+          "option": "1 Seater",
+          "price": 30000,
+          "available": true
+        },
+        {
+          "option": "7seater (3+2+1+1)",
+          "price": 150000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/7-seater-semi-recliner-back-1.webp",
+        "/images/products/7-seater-semi-recliner-back-2.webp",
+        "/images/products/7-seater-semi-recliner-back-3.webp",
+        "/images/products/7-seater-semi-recliner-back-4.webp",
+        "/images/products/7-seater-semi-recliner-back-5.webp"
+      ],
+      "imageCount": 5,
+      "url": "https://www.modernfurniturepacificltd.com/products/7-seater-semi-recliner-back"
+    },
+    {
+      "id": 7582542299219,
+      "handle": "modern-black-peachy-tv-stands",
+      "title": "Modern Black Peachy Tv Stands",
+      "originalTitle": "Modern black peachy  tv stands",
+      "type": "Tables",
+      "category": "Tables",
+      "collections": [
+        "best-sellers",
+        "living-room",
+        "new-arrivals",
+        "shop",
+        "tables"
+      ],
+      "isNew": true,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Made of wood and can hold up to 65inch screen Available in black and white",
+      "priceMin": 40000,
+      "priceMax": 40000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Black",
+          "price": 40000,
+          "available": true
+        },
+        {
+          "option": "White",
+          "price": 40000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/modern-black-peachy-tv-stands-1.webp"
+      ],
+      "imageCount": 1,
+      "url": "https://www.modernfurniturepacificltd.com/products/modern-black-peachy-tv-stands"
+    },
+    {
+      "id": 7902006083667,
+      "handle": "juventus-sofa-set",
+      "title": "Juventus Sofa Set",
+      "originalTitle": "JUVENTUS SOFA SET",
+      "type": "Living Room",
+      "category": "Living Room",
+      "collections": [],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Premium Product Description Experience comfort and modern elegance with this beautifully crafted modern grey sofa set. Designed with plush cushioning, wide armrests, and a sturdy wooden base, it offers the perfect balance of style and durability. The spacious seating and matching chaise lounge make it ideal for relaxing, entertaining guests, or elevating the look of your living room. A perfect choice for those who love contemporary luxury and comfort. 2. Short Social Media Caption Upgrade your living space with this luxurious modern grey sofa set \ud83d\udecb\ufe0f \u2714 Spacious & comfortable \u2714 Elegant wooden fi",
+      "priceMin": 45000,
+      "priceMax": 110000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "6seater (3+3) / sofa",
+          "price": 110000,
+          "available": true
+        },
+        {
+          "option": "5seater (3+2) / sofa",
+          "price": 95000,
+          "available": false
+        },
+        {
+          "option": "3seater / sofa",
+          "price": 45000,
+          "available": false
+        },
+        {
+          "option": "2seater / sofa",
+          "price": 45000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/juventus-sofa-set-1.jpg",
+        "/images/products/juventus-sofa-set-2.jpg",
+        "/images/products/juventus-sofa-set-3.jpg"
+      ],
+      "imageCount": 3,
+      "url": "https://www.modernfurniturepacificltd.com/products/juventus-sofa-set"
+    },
+    {
+      "id": 7573028831315,
+      "handle": "modern-copenhagen-7seater-corduroy-sofa",
+      "title": "Modern Copenhagen 7 Seater Corduroy Sofa",
+      "originalTitle": "Modern Copenhagen 7seater corduroy sofa",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "best-sellers",
+        "living-room",
+        "shop"
+      ],
+      "isNew": false,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "It's a classic sofa made of premium hardwood frame with a lustrous dark walnut finish and has removable cushions for easy maintenance",
+      "priceMin": 45000,
+      "priceMax": 220000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "7 Seater",
+          "price": 220000,
+          "available": true
+        },
+        {
+          "option": "3 Seater",
+          "price": 80000,
+          "available": false
+        },
+        {
+          "option": "2 Seater",
+          "price": 70000,
+          "available": false
+        },
+        {
+          "option": "1 seater",
+          "price": 45000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/modern-copenhagen-7seater-corduroy-sofa-1.webp",
+        "/images/products/modern-copenhagen-7seater-corduroy-sofa-2.webp",
+        "/images/products/modern-copenhagen-7seater-corduroy-sofa-3.webp",
+        "/images/products/modern-copenhagen-7seater-corduroy-sofa-4.webp",
+        "/images/products/modern-copenhagen-7seater-corduroy-sofa-5.webp",
+        "/images/products/modern-copenhagen-7seater-corduroy-sofa-6.webp",
+        "/images/products/modern-copenhagen-7seater-corduroy-sofa-7.webp",
+        "/images/products/modern-copenhagen-7seater-corduroy-sofa-8.webp"
+      ],
+      "imageCount": 8,
+      "url": "https://www.modernfurniturepacificltd.com/products/modern-copenhagen-7seater-corduroy-sofa"
+    },
+    {
+      "id": 7902000316499,
+      "handle": "modena-sofa-set",
+      "title": "Modena Sofa Set",
+      "originalTitle": "MODENA SOFA SET",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "living-room"
+      ],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "\u201cComfort meets elegance \u2013 the perfect centerpiece for your living room.\u201d \ud83d\udecb\ufe0f \u201cWhere style sits and comfort begins.\u201d \u201cTurn your living room into a luxury lounge.\u201d \u2728 \u201cDesigned for comfort. Built for style.\u201d \u201cRelax in style with our modern luxury sofa set.\u201d \u201cBecause every home deserves a beautiful seat.\u201d \u201cMake your living room the most loved space in your home.\u201d \u201cSoft cushions, timeless design, endless comfort.\u201d \u201cYour living room upgrade starts here.\u201d \u201cLuxury you can sit on.\u201d \ud83d\udc4c",
+      "priceMin": 60000,
+      "priceMax": 260000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "4+3+2",
+          "price": 260000,
+          "available": true
+        },
+        {
+          "option": "4+3",
+          "price": 200000,
+          "available": false
+        },
+        {
+          "option": "4",
+          "price": 100000,
+          "available": false
+        },
+        {
+          "option": "3",
+          "price": 100000,
+          "available": false
+        },
+        {
+          "option": "2",
+          "price": 60000,
+          "available": false
+        },
+        {
+          "option": "Full set",
+          "price": 180000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/modena-sofa-set-1.jpg",
+        "/images/products/modena-sofa-set-2.jpg",
+        "/images/products/modena-sofa-set-3.jpg",
+        "/images/products/modena-sofa-set-4.jpg"
+      ],
+      "imageCount": 4,
+      "url": "https://www.modernfurniturepacificltd.com/products/modena-sofa-set"
+    },
+    {
+      "id": 7571360350291,
+      "handle": "suede-standard-bed-5x6",
+      "title": "Suede Standard Bed 5x6",
+      "originalTitle": "Suede Standard Bed 5X6",
+      "type": "Bed",
+      "category": "Bedroom",
+      "collections": [
+        "bedroom-1",
+        "best-sellers",
+        "frontpage",
+        "shop"
+      ],
+      "isNew": false,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Suede Bed 5X6",
+      "priceMin": 60000,
+      "priceMax": 60000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Default Title",
+          "price": 60000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/suede-standard-bed-5x6-1.webp",
+        "/images/products/suede-standard-bed-5x6-2.webp",
+        "/images/products/suede-standard-bed-5x6-3.webp",
+        "/images/products/suede-standard-bed-5x6-4.webp"
+      ],
+      "imageCount": 4,
+      "url": "https://www.modernfurniturepacificltd.com/products/suede-standard-bed-5x6"
+    },
+    {
+      "id": 7571310149715,
+      "handle": "5x6-chester-bed-cream",
+      "title": "Modern Napnest Bed 5x6",
+      "originalTitle": "Modern napnest bed 5x6",
+      "type": "Bed",
+      "category": "Bedroom",
+      "collections": [
+        "bedroom-1",
+        "best-sellers",
+        "new-arrivals",
+        "shop"
+      ],
+      "isNew": true,
+      "isBestSeller": true,
+      "vendor": "Mordern Furniture Pacific",
+      "description": "This is a button decorated bed Made of soft corduroy fabric which has a soothing feeling on the headboard",
+      "priceMin": 60000,
+      "priceMax": 60000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Default Title",
+          "price": 60000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/5x6-chester-bed-cream-1.webp",
+        "/images/products/5x6-chester-bed-cream-2.webp",
+        "/images/products/5x6-chester-bed-cream-3.webp",
+        "/images/products/5x6-chester-bed-cream-4.webp"
+      ],
+      "imageCount": 4,
+      "url": "https://www.modernfurniturepacificltd.com/products/5x6-chester-bed-cream"
+    },
+    {
+      "id": 7571331285075,
+      "handle": "king-size-mahogany-bed-set-6x6",
+      "title": "King Size Mahogany Bed",
+      "originalTitle": "King Size Mahogany Bed",
+      "type": "Bed",
+      "category": "Bedroom",
+      "collections": [
+        "bedroom-1",
+        "best-sellers",
+        "dressing-table",
+        "frontpage",
+        "new-arrivals",
+        "shop"
+      ],
+      "isNew": true,
+      "isBestSeller": true,
+      "vendor": "Mordern Furniture Pacific",
+      "description": "King Size Bed Set 6X6 Comes With 1 x Bed 1 x Dressing Table 2 x Bed Side Table",
+      "priceMin": 65000,
+      "priceMax": 190000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Full Set 6x6",
+          "price": 190000,
+          "available": true
+        },
+        {
+          "option": "Bed Only 6x6",
+          "price": 100000,
+          "available": false
+        },
+        {
+          "option": "Bed Only 5x6",
+          "price": 80000,
+          "available": false
+        },
+        {
+          "option": "Bed Only 4x6",
+          "price": 65000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/king-size-mahogany-bed-set-6x6-1.webp",
+        "/images/products/king-size-mahogany-bed-set-6x6-2.webp",
+        "/images/products/king-size-mahogany-bed-set-6x6-3.webp",
+        "/images/products/king-size-mahogany-bed-set-6x6-4.webp",
+        "/images/products/king-size-mahogany-bed-set-6x6-5.webp"
+      ],
+      "imageCount": 5,
+      "url": "https://www.modernfurniturepacificltd.com/products/king-size-mahogany-bed-set-6x6"
+    },
+    {
+      "id": 7571329056851,
+      "handle": "coffee-table-mahogany",
+      "title": "Modern Solid Wood Coffee Table.",
+      "originalTitle": "Modern solid wood coffee table.",
+      "type": "Tables",
+      "category": "Tables",
+      "collections": [
+        "frontpage",
+        "living-room",
+        "shop",
+        "tables"
+      ],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Mordern Furniture Pacific",
+      "description": "Has a unique, spacious and a smooth top that provides eye catching display from all angles Structural frame: mahogany Colour: clear paint Coffee Table Mahogany 1 x Coffee Table 2 x Stools",
+      "priceMin": 70000,
+      "priceMax": 70000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Default Title",
+          "price": 70000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/coffee-table-mahogany-1.webp",
+        "/images/products/coffee-table-mahogany-2.webp",
+        "/images/products/coffee-table-mahogany-3.webp",
+        "/images/products/coffee-table-mahogany-4.webp",
+        "/images/products/coffee-table-mahogany-5.webp"
+      ],
+      "imageCount": 5,
+      "url": "https://www.modernfurniturepacificltd.com/products/coffee-table-mahogany"
+    },
+    {
+      "id": 7588893917267,
+      "handle": "modern-austic-7-seater-microfiber-recliner-sofa-3-2-1-1",
+      "title": "Modern Austic 7 Seater Microfiber Recliner Sofa (3+2+1+1)",
+      "originalTitle": "Modern Austic 7 seater microfiber recliner sofa (3+2+1+1)",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "living-room",
+        "new-arrivals",
+        "shop"
+      ],
+      "isNew": true,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Modern Austic 7 seater microfiber recliner sofa (3+2+1+1)",
+      "priceMin": 85000,
+      "priceMax": 260000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "7 Seater (3+2+1+1)",
+          "price": 260000,
+          "available": true
+        },
+        {
+          "option": "6 Seater",
+          "price": 220000,
+          "available": true
+        },
+        {
+          "option": "5 Seater",
+          "price": 175000,
+          "available": true
+        },
+        {
+          "option": "3 Seater",
+          "price": 90000,
+          "available": true
+        },
+        {
+          "option": "2 Seater",
+          "price": 85000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/modern-austic-7-seater-microfiber-recliner-sofa-3-2-1-1-1.webp",
+        "/images/products/modern-austic-7-seater-microfiber-recliner-sofa-3-2-1-1-2.webp",
+        "/images/products/modern-austic-7-seater-microfiber-recliner-sofa-3-2-1-1-3.webp",
+        "/images/products/modern-austic-7-seater-microfiber-recliner-sofa-3-2-1-1-4.webp",
+        "/images/products/modern-austic-7-seater-microfiber-recliner-sofa-3-2-1-1-5.webp",
+        "/images/products/modern-austic-7-seater-microfiber-recliner-sofa-3-2-1-1-6.webp",
+        "/images/products/modern-austic-7-seater-microfiber-recliner-sofa-3-2-1-1-7.webp"
+      ],
+      "imageCount": 7,
+      "url": "https://www.modernfurniturepacificltd.com/products/modern-austic-7-seater-microfiber-recliner-sofa-3-2-1-1"
+    },
+    {
+      "id": 7588339417171,
+      "handle": "modern-serenity-dining-table",
+      "title": "Modern Serenity Dining Table",
+      "originalTitle": "Modern Serenity Dining Table",
+      "type": "Tables",
+      "category": "Dining",
+      "collections": [
+        "best-sellers",
+        "bedroom",
+        "shop",
+        "tables"
+      ],
+      "isNew": false,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Modern Serenity Dining Table \u2013 Crafted from Premium Mahogany Wood Elevate your dining experience with the Modern Serenity Dining Table , where timeless craftsmanship meets contemporary design. Expertly made from solid mahogany wood, this table offers exceptional strength, durability, and natural beauty. Its clean lines, smooth finish, and rich, warm tones create a serene yet sophisticated centerpiece for any dining space. Designed to comfortably accommodate family gatherings or elegant dinner parties, the Modern Serenity Dining Table is not just furniture\u2014it's a statement of style and lasting ",
+      "priceMin": 105000,
+      "priceMax": 105000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Default Title",
+          "price": 105000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/modern-serenity-dining-table-1.webp",
+        "/images/products/modern-serenity-dining-table-2.webp",
+        "/images/products/modern-serenity-dining-table-3.webp",
+        "/images/products/modern-serenity-dining-table-4.webp",
+        "/images/products/modern-serenity-dining-table-5.webp",
+        "/images/products/modern-serenity-dining-table-6.webp",
+        "/images/products/modern-serenity-dining-table-7.webp",
+        "/images/products/modern-serenity-dining-table-8.webp"
+      ],
+      "imageCount": 8,
+      "url": "https://www.modernfurniturepacificltd.com/products/modern-serenity-dining-table"
+    },
+    {
+      "id": 7572131086419,
+      "handle": "modern-majestic-6seater-dining-set",
+      "title": "Modern Majestic Dining Table",
+      "originalTitle": "Modern Majestic Dining table",
+      "type": "Mahogany",
+      "category": "Dining",
+      "collections": [
+        "best-sellers",
+        "bedroom",
+        "new-arrivals",
+        "tables"
+      ],
+      "isNew": true,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "This set has well padded antique chairs, stylish and strong for every day use made of mahogany Colour:clear",
+      "priceMin": 105000,
+      "priceMax": 150000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "6 Seater",
+          "price": 150000,
+          "available": true
+        },
+        {
+          "option": "4 Seater",
+          "price": 105000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/modern-majestic-6seater-dining-set-1.webp",
+        "/images/products/modern-majestic-6seater-dining-set-2.webp",
+        "/images/products/modern-majestic-6seater-dining-set-3.webp",
+        "/images/products/modern-majestic-6seater-dining-set-4.webp",
+        "/images/products/modern-majestic-6seater-dining-set-5.webp",
+        "/images/products/modern-majestic-6seater-dining-set-6.webp"
+      ],
+      "imageCount": 6,
+      "url": "https://www.modernfurniturepacificltd.com/products/modern-majestic-6seater-dining-set"
+    },
+    {
+      "id": 7901989109843,
+      "handle": "retractable-sofa",
+      "title": "Retractable Sofa",
+      "originalTitle": "RETRACTABLE SOFA",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "living-room"
+      ],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "\u201cExperience ultimate comfort and modern elegance with our luxury recliner sofa set \u2013 designed to transform your living room into a space of relaxation and style.\u201d 2. Short & Catchy \u201cRelax in style. Premium comfort meets modern design.\u201d 3. Sales-Focused Caption \u201cUpgrade your living room with this premium recliner sofa set \u2013 spacious, stylish, and built for everyday comfort.\u201d 4. Luxury Marketing Caption \u201cWhere comfort meets sophistication. Discover the perfect recliner sofa set for your modern home.\u201d \u201cSit back, relax, and enjoy luxury comfort with our modern recliner sofa set \u2013 perfect for famil",
+      "priceMin": 120000,
+      "priceMax": 120000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Microfiber",
+          "price": 120000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/retractable-sofa-1.jpg",
+        "/images/products/retractable-sofa-2.jpg",
+        "/images/products/retractable-sofa-3.jpg",
+        "/images/products/retractable-sofa-4.jpg",
+        "/images/products/retractable-sofa-5.jpg"
+      ],
+      "imageCount": 5,
+      "url": "https://www.modernfurniturepacificltd.com/products/retractable-sofa"
+    },
+    {
+      "id": 7901533241427,
+      "handle": "6-seater-dining-set",
+      "title": "6 Seater Dining Set",
+      "originalTitle": "6 SEATER DINING SET",
+      "type": "Tables",
+      "category": "Dining",
+      "collections": [
+        "bedroom"
+      ],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Here is a professional website-ready product description you can use for the dining set in the image: Elegant 6-Seater Solid Wood Dining Set Upgrade your dining space with this beautifully crafted 6-seater solid wood dining set, designed to combine durability, comfort, and timeless style. The spacious rectangular table provides ample room for family meals, gatherings, and entertaining guests, while the six ergonomically designed chairs offer excellent back support and cushioned seating for added comfort. Finished in a rich dark wood tone, this dining set complements both modern and classic int",
+      "priceMin": 120000,
+      "priceMax": 120000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Default Title",
+          "price": 120000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/6-seater-dining-set-1.jpg"
+      ],
+      "imageCount": 1,
+      "url": "https://www.modernfurniturepacificltd.com/products/6-seater-dining-set"
+    },
+    {
+      "id": 7573029519443,
+      "handle": "modern-vista-7seater-microfiber-sofa",
+      "title": "Modern Vista 7 Seater Microfiber Sofa",
+      "originalTitle": "Modern Vista 7seater microfiber sofa",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "best-sellers",
+        "living-room",
+        "shop"
+      ],
+      "isNew": false,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "It's 100% microfiber made classic sofa with soft padded headrest, armrest and back support that gives you comfort",
+      "priceMin": 125000,
+      "priceMax": 125000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Default Title",
+          "price": 125000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/modern-vista-7seater-microfiber-sofa-1.webp",
+        "/images/products/modern-vista-7seater-microfiber-sofa-2.webp",
+        "/images/products/modern-vista-7seater-microfiber-sofa-3.webp",
+        "/images/products/modern-vista-7seater-microfiber-sofa-4.webp",
+        "/images/products/modern-vista-7seater-microfiber-sofa-5.webp",
+        "/images/products/modern-vista-7seater-microfiber-sofa-6.webp",
+        "/images/products/modern-vista-7seater-microfiber-sofa-7.webp",
+        "/images/products/modern-vista-7seater-microfiber-sofa-8.webp"
+      ],
+      "imageCount": 8,
+      "url": "https://www.modernfurniturepacificltd.com/products/modern-vista-7seater-microfiber-sofa"
+    },
+    {
+      "id": 7571019071571,
+      "handle": "regal-oval-mahogany-dining-set",
+      "title": "Oval Mahogany 6 Seater Dining Set With Flower Seats",
+      "originalTitle": "Oval Mahogany 6 seater dining set with Flower seats",
+      "type": "Mahogany",
+      "category": "Dining",
+      "collections": [
+        "bedroom",
+        "frontpage",
+        "new-arrivals",
+        "shop"
+      ],
+      "isNew": true,
+      "isBestSeller": false,
+      "vendor": "Mordern Furniture Pacific",
+      "description": "6 seater oval dining with Flower seats set clear mahogany with paw legs at the top edge",
+      "priceMin": 155000,
+      "priceMax": 155000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Default Title",
+          "price": 155000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/regal-oval-mahogany-dining-set-1.webp",
+        "/images/products/regal-oval-mahogany-dining-set-2.webp",
+        "/images/products/regal-oval-mahogany-dining-set-3.webp",
+        "/images/products/regal-oval-mahogany-dining-set-4.webp",
+        "/images/products/regal-oval-mahogany-dining-set-5.webp",
+        "/images/products/regal-oval-mahogany-dining-set-6.webp",
+        "/images/products/regal-oval-mahogany-dining-set-7.webp"
+      ],
+      "imageCount": 7,
+      "url": "https://www.modernfurniturepacificltd.com/products/regal-oval-mahogany-dining-set"
+    },
+    {
+      "id": 7571358580819,
+      "handle": "mahogany-6-seater-classic",
+      "title": "Mahogany 6 Seater Classic",
+      "originalTitle": "Mahogany 6 Seater Classic",
+      "type": "Mahogany",
+      "category": "Living Room",
+      "collections": [
+        "best-sellers",
+        "living-room",
+        "new-arrivals",
+        "shop"
+      ],
+      "isNew": true,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Mahogany 6 Seater Classic",
+      "priceMin": 170000,
+      "priceMax": 170000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Default Title",
+          "price": 170000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/mahogany-6-seater-classic-1.webp",
+        "/images/products/mahogany-6-seater-classic-2.webp",
+        "/images/products/mahogany-6-seater-classic-3.webp",
+        "/images/products/mahogany-6-seater-classic-4.webp",
+        "/images/products/mahogany-6-seater-classic-5.webp",
+        "/images/products/mahogany-6-seater-classic-6.webp",
+        "/images/products/mahogany-6-seater-classic-7.webp",
+        "/images/products/mahogany-6-seater-classic-8.webp"
+      ],
+      "imageCount": 8,
+      "url": "https://www.modernfurniturepacificltd.com/products/mahogany-6-seater-classic"
+    },
+    {
+      "id": 7808832405587,
+      "handle": "benin-sofa",
+      "title": "Benin Sofa",
+      "originalTitle": "BENIN SOFA",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "living-room"
+      ],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Benin sofa set is a classic featuring design made of teakwood skating which provides it with stability and elegance.its a blend of traditional style with comfort .",
+      "priceMin": 180000,
+      "priceMax": 180000,
+      "inStock": true,
+      "variants": [
+        {
+          "option": "Other",
+          "price": 180000,
+          "available": true
+        }
+      ],
+      "images": [
+        "/images/products/benin-sofa-1.jpg",
+        "/images/products/benin-sofa-2.jpg",
+        "/images/products/benin-sofa-3.jpg",
+        "/images/products/benin-sofa-4.jpg"
+      ],
+      "imageCount": 4,
+      "url": "https://www.modernfurniturepacificltd.com/products/benin-sofa"
+    },
+    {
+      "id": 7574931636307,
+      "handle": "modern-celine-chester-7seater-sofa-3-2-1-1",
+      "title": "Modern Celine Chester 7 Seater Sofa (3+2+1+1)",
+      "originalTitle": "Modern Celine chester 7seater sofa (3+2+1+1)",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "living-room",
+        "new-arrivals",
+        "shop"
+      ],
+      "isNew": true,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "This classic sofa has a deep buttoning and high arms and gives a sophisticated interior",
+      "priceMin": 25000,
+      "priceMax": 150000,
+      "inStock": false,
+      "variants": [
+        {
+          "option": "7 Seater",
+          "price": 150000,
+          "available": false
+        },
+        {
+          "option": "3 Seater",
+          "price": 47000,
+          "available": false
+        },
+        {
+          "option": "2 Seater",
+          "price": 45000,
+          "available": false
+        },
+        {
+          "option": "1 Seater",
+          "price": 25000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/modern-celine-chester-7seater-sofa-3-2-1-1-1.webp",
+        "/images/products/modern-celine-chester-7seater-sofa-3-2-1-1-2.webp",
+        "/images/products/modern-celine-chester-7seater-sofa-3-2-1-1-3.webp",
+        "/images/products/modern-celine-chester-7seater-sofa-3-2-1-1-4.webp",
+        "/images/products/modern-celine-chester-7seater-sofa-3-2-1-1-5.webp",
+        "/images/products/modern-celine-chester-7seater-sofa-3-2-1-1-6.webp",
+        "/images/products/modern-celine-chester-7seater-sofa-3-2-1-1-7.webp"
+      ],
+      "imageCount": 7,
+      "url": "https://www.modernfurniturepacificltd.com/products/modern-celine-chester-7seater-sofa-3-2-1-1"
+    },
+    {
+      "id": 7574589866067,
+      "handle": "modern-asmara-7-seater-corduroy-sofa",
+      "title": "Modern Asmara 7 Seater Corduroy Sofa",
+      "originalTitle": "Modern Asmara 7 seater corduroy sofa",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "living-room",
+        "new-arrivals",
+        "shop"
+      ],
+      "isNew": true,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "This sofa offers spacious seating and superior comfort for your living space. Perfect for families and gatherings Available in 3 seater 2 seater 1 seater",
+      "priceMin": 30000,
+      "priceMax": 150000,
+      "inStock": false,
+      "variants": [
+        {
+          "option": "7 Seater",
+          "price": 150000,
+          "available": false
+        },
+        {
+          "option": "3 Seater",
+          "price": 55000,
+          "available": false
+        },
+        {
+          "option": "2 Seater",
+          "price": 50000,
+          "available": false
+        },
+        {
+          "option": "1 Seater",
+          "price": 30000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/modern-asmara-7-seater-corduroy-sofa-1.webp",
+        "/images/products/modern-asmara-7-seater-corduroy-sofa-2.webp",
+        "/images/products/modern-asmara-7-seater-corduroy-sofa-3.webp",
+        "/images/products/modern-asmara-7-seater-corduroy-sofa-4.webp",
+        "/images/products/modern-asmara-7-seater-corduroy-sofa-5.webp",
+        "/images/products/modern-asmara-7-seater-corduroy-sofa-6.webp",
+        "/images/products/modern-asmara-7-seater-corduroy-sofa-7.webp",
+        "/images/products/modern-asmara-7-seater-corduroy-sofa-8.webp"
+      ],
+      "imageCount": 8,
+      "url": "https://www.modernfurniturepacificltd.com/products/modern-asmara-7-seater-corduroy-sofa"
+    },
+    {
+      "id": 7571361562707,
+      "handle": "stripe-design-bed-5x6",
+      "title": "Modern Dreamy Fabric Bed 5x6",
+      "originalTitle": "Modern Dreamy fabric bed 5x6",
+      "type": "Bed",
+      "category": "Bedroom",
+      "collections": [
+        "bedroom-1",
+        "dressing-table",
+        "shop"
+      ],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "It's an upholstered bed design and has a well padded headboard that allows you to lean on it for relaxation",
+      "priceMin": 45000,
+      "priceMax": 75000,
+      "inStock": false,
+      "variants": [
+        {
+          "option": "6x6",
+          "price": 75000,
+          "available": false
+        },
+        {
+          "option": "5x6",
+          "price": 60000,
+          "available": false
+        },
+        {
+          "option": "4x6",
+          "price": 45000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/stripe-design-bed-5x6-1.webp",
+        "/images/products/stripe-design-bed-5x6-2.webp",
+        "/images/products/stripe-design-bed-5x6-3.webp",
+        "/images/products/stripe-design-bed-5x6-4.webp",
+        "/images/products/stripe-design-bed-5x6-5.webp"
+      ],
+      "imageCount": 5,
+      "url": "https://www.modernfurniturepacificltd.com/products/stripe-design-bed-5x6"
+    },
+    {
+      "id": 7582549606483,
+      "handle": "double-decker-4x6-by-3-5x6",
+      "title": "Double Decker 4x6 By 3.5x6",
+      "originalTitle": "DOUBLE DECKER 4X6 BY 3.5X6",
+      "type": "Bed",
+      "category": "Bedroom",
+      "collections": [
+        "bedroom-1",
+        "best-sellers",
+        "shop"
+      ],
+      "isNew": false,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Maximize your space with our sturdy and stylish Double Decker bed. The top bunk fits a 3.5x6 mattress, perfect for kids or guests, while the bottom bunk comfortably holds a 4x6 mattress\u2014ideal for adults or teens. Designed for both comfort and durability, this bed is perfect for shared rooms, hostels, or family homes.",
+      "priceMin": 48000,
+      "priceMax": 48000,
+      "inStock": false,
+      "variants": [
+        {
+          "option": "Clear / 4x6 by 3.5x6",
+          "price": 48000,
+          "available": false
+        },
+        {
+          "option": "walnut / 4x6 by 3.5x6",
+          "price": 48000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/double-decker-4x6-by-3-5x6-1.webp",
+        "/images/products/double-decker-4x6-by-3-5x6-2.webp",
+        "/images/products/double-decker-4x6-by-3-5x6-3.webp"
+      ],
+      "imageCount": 3,
+      "url": "https://www.modernfurniturepacificltd.com/products/double-decker-4x6-by-3-5x6"
+    },
+    {
+      "id": 7901976985683,
+      "handle": "napoli-sofa",
+      "title": "Napoli Sofa",
+      "originalTitle": "NAPOLI SOFA",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "1. Simple & Elegant \u201cWhere Comfort Meets Modern Design.\u201d Experience stylish relaxation with our premium modular sofa set, crafted to bring elegance and comfort into your living space. 2. Luxury Feel \u201cRedefine Your Living Room Comfort.\u201d A modern modular sofa set designed for spacious living, ultimate relaxation, and timeless style. 3. Sales Focused \u201cModern Comfort for the Perfect Living Space.\u201d Soft, stylish, and designed for flexibility\u2014this sofa set transforms any room into a welcoming retreat. 4. Premium Brand Style \u201cStyle. Space. Comfort.\u201d Our contemporary modular sofa set blends luxury com",
+      "priceMin": 50000,
+      "priceMax": 215000,
+      "inStock": false,
+      "variants": [
+        {
+          "option": "6",
+          "price": 215000,
+          "available": false
+        },
+        {
+          "option": "5",
+          "price": 165000,
+          "available": false
+        },
+        {
+          "option": "3",
+          "price": 85000,
+          "available": false
+        },
+        {
+          "option": "2",
+          "price": 80000,
+          "available": false
+        },
+        {
+          "option": "1",
+          "price": 50000,
+          "available": false
+        },
+        {
+          "option": "3+2+1",
+          "price": 215000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/napoli-sofa-1.jpg",
+        "/images/products/napoli-sofa-2.jpg",
+        "/images/products/napoli-sofa-3.jpg",
+        "/images/products/napoli-sofa-4.jpg"
+      ],
+      "imageCount": 4,
+      "url": "https://www.modernfurniturepacificltd.com/products/napoli-sofa"
+    },
+    {
+      "id": 7573025783891,
+      "handle": "modern-timeless-bed-5x6",
+      "title": "Modern Timeless Bed 5x6",
+      "originalTitle": "Modern Timeless bed 5x6",
+      "type": "Bed",
+      "category": "Bedroom",
+      "collections": [
+        "bedroom-1",
+        "best-sellers",
+        "shop"
+      ],
+      "isNew": false,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Hardwood construction for durability and nature inspiration, floral art on the headboard",
+      "priceMin": 50000,
+      "priceMax": 80000,
+      "inStock": false,
+      "variants": [
+        {
+          "option": "Bed Only",
+          "price": 80000,
+          "available": false
+        },
+        {
+          "option": "1 X Solid dressing mirror",
+          "price": 65000,
+          "available": false
+        },
+        {
+          "option": "2 X bedside tables",
+          "price": 50000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/modern-timeless-bed-5x6-1.webp",
+        "/images/products/modern-timeless-bed-5x6-2.webp",
+        "/images/products/modern-timeless-bed-5x6-3.webp",
+        "/images/products/modern-timeless-bed-5x6-4.webp",
+        "/images/products/modern-timeless-bed-5x6-5.webp",
+        "/images/products/modern-timeless-bed-5x6-6.webp"
+      ],
+      "imageCount": 6,
+      "url": "https://www.modernfurniturepacificltd.com/products/modern-timeless-bed-5x6"
+    },
+    {
+      "id": 7571363332179,
+      "handle": "crown-mahogany-queen-size-bed-5x6",
+      "title": "Crown Mahogany Queen Size Bed 5x6",
+      "originalTitle": "Crown Mahogany Queen Size Bed 5X6",
+      "type": "Bed",
+      "category": "Bedroom",
+      "collections": [
+        "bedroom-1",
+        "best-sellers",
+        "shop"
+      ],
+      "isNew": false,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Crown Queen Size Bed",
+      "priceMin": 65000,
+      "priceMax": 175000,
+      "inStock": false,
+      "variants": [
+        {
+          "option": "Full Set",
+          "price": 175000,
+          "available": false
+        },
+        {
+          "option": "Bed Only 5x6",
+          "price": 80000,
+          "available": false
+        },
+        {
+          "option": "Bed with Side tables",
+          "price": 120000,
+          "available": false
+        },
+        {
+          "option": "Bed with Dresser",
+          "price": 150000,
+          "available": false
+        },
+        {
+          "option": "Bed Only 6x6",
+          "price": 100000,
+          "available": false
+        },
+        {
+          "option": "Bed Only 4x6",
+          "price": 65000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/crown-mahogany-queen-size-bed-5x6-1.webp",
+        "/images/products/crown-mahogany-queen-size-bed-5x6-2.webp",
+        "/images/products/crown-mahogany-queen-size-bed-5x6-3.webp",
+        "/images/products/crown-mahogany-queen-size-bed-5x6-4.webp",
+        "/images/products/crown-mahogany-queen-size-bed-5x6-5.webp",
+        "/images/products/crown-mahogany-queen-size-bed-5x6-6.webp"
+      ],
+      "imageCount": 6,
+      "url": "https://www.modernfurniturepacificltd.com/products/crown-mahogany-queen-size-bed-5x6"
+    },
+    {
+      "id": 7588892115027,
+      "handle": "modern-cuddle-microfibre-recliner-sofa-6-seater-3-2-1",
+      "title": "Modern Cuddle Microfibre Recliner Sofa 6 Seater (3+2+1)",
+      "originalTitle": "Modern cuddle microfibre recliner sofa 6 seater (3+2+1)",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "best-sellers",
+        "living-room",
+        "shop"
+      ],
+      "isNew": false,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "A 3 seater has 2 ends recliner 2 seater recliner and a console(storage) This set gives you a suitable place for relaxation extending backward with the simple side lever",
+      "priceMin": 75000,
+      "priceMax": 230000,
+      "inStock": false,
+      "variants": [
+        {
+          "option": "6 Seater (3+2+1)",
+          "price": 190000,
+          "available": false
+        },
+        {
+          "option": "3 Seater",
+          "price": 80000,
+          "available": false
+        },
+        {
+          "option": "2 Seater",
+          "price": 75000,
+          "available": false
+        },
+        {
+          "option": "5 Seater",
+          "price": 155000,
+          "available": false
+        },
+        {
+          "option": "7 Seater",
+          "price": 230000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/modern-cuddle-microfibre-recliner-sofa-6-seater-3-2-1-1.webp",
+        "/images/products/modern-cuddle-microfibre-recliner-sofa-6-seater-3-2-1-2.webp",
+        "/images/products/modern-cuddle-microfibre-recliner-sofa-6-seater-3-2-1-3.webp",
+        "/images/products/modern-cuddle-microfibre-recliner-sofa-6-seater-3-2-1-4.webp",
+        "/images/products/modern-cuddle-microfibre-recliner-sofa-6-seater-3-2-1-5.webp",
+        "/images/products/modern-cuddle-microfibre-recliner-sofa-6-seater-3-2-1-6.webp",
+        "/images/products/modern-cuddle-microfibre-recliner-sofa-6-seater-3-2-1-7.webp",
+        "/images/products/modern-cuddle-microfibre-recliner-sofa-6-seater-3-2-1-8.webp"
+      ],
+      "imageCount": 8,
+      "url": "https://www.modernfurniturepacificltd.com/products/modern-cuddle-microfibre-recliner-sofa-6-seater-3-2-1"
+    },
+    {
+      "id": 7573028110419,
+      "handle": "modern-deluxe-solid-bed-5x6",
+      "title": "Modern Deluxe Solid Bed 5x6",
+      "originalTitle": "Modern Deluxe solid bed 5x6",
+      "type": "Bed",
+      "category": "Bedroom",
+      "collections": [
+        "bedroom-1",
+        "best-sellers",
+        "new-arrivals",
+        "shop"
+      ],
+      "isNew": true,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Elegant and nature inspired design that will give you the best night experience right in your own bedroom",
+      "priceMin": 80000,
+      "priceMax": 115000,
+      "inStock": false,
+      "variants": [
+        {
+          "option": "6x6",
+          "price": 115000,
+          "available": false
+        },
+        {
+          "option": "4x6",
+          "price": 80000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/modern-deluxe-solid-bed-5x6-1.webp",
+        "/images/products/modern-deluxe-solid-bed-5x6-2.webp",
+        "/images/products/modern-deluxe-solid-bed-5x6-3.webp",
+        "/images/products/modern-deluxe-solid-bed-5x6-4.webp",
+        "/images/products/modern-deluxe-solid-bed-5x6-5.webp"
+      ],
+      "imageCount": 5,
+      "url": "https://www.modernfurniturepacificltd.com/products/modern-deluxe-solid-bed-5x6"
+    },
+    {
+      "id": 7571361267795,
+      "handle": "sofa-set-silver-stripe-5-seater",
+      "title": "Modern Bella 7 Seater Corduroy Sofa",
+      "originalTitle": "Modern bella 7seater corduroy sofa",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "best-sellers",
+        "frontpage",
+        "living-room",
+        "shop"
+      ],
+      "isNew": false,
+      "isBestSeller": true,
+      "vendor": "Modern Furniture Pacific",
+      "description": "It has a soft spring cushion and a plush back cushion that ensures ample support and ultimate comfort Sofa Set Silver Stripe 5 Seater",
+      "priceMin": 140000,
+      "priceMax": 140000,
+      "inStock": false,
+      "variants": [
+        {
+          "option": "Default Title",
+          "price": 140000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/sofa-set-silver-stripe-5-seater-1.webp",
+        "/images/products/sofa-set-silver-stripe-5-seater-2.webp",
+        "/images/products/sofa-set-silver-stripe-5-seater-3.webp",
+        "/images/products/sofa-set-silver-stripe-5-seater-4.webp",
+        "/images/products/sofa-set-silver-stripe-5-seater-5.webp",
+        "/images/products/sofa-set-silver-stripe-5-seater-6.webp",
+        "/images/products/sofa-set-silver-stripe-5-seater-7.webp"
+      ],
+      "imageCount": 7,
+      "url": "https://www.modernfurniturepacificltd.com/products/sofa-set-silver-stripe-5-seater"
+    },
+    {
+      "id": 7573024702547,
+      "handle": "modern-serenity-oval-6-seater-dining-set",
+      "title": "Modern Serenity Oval 6 Seater Dining Set",
+      "originalTitle": "Modern serenity Oval 6 Seater dining set",
+      "type": "Mahogany",
+      "category": "Dining",
+      "collections": [
+        "bedroom",
+        "shop",
+        "tables"
+      ],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "An oval shaped table and well padded chairs made of mahogany",
+      "priceMin": 150000,
+      "priceMax": 150000,
+      "inStock": false,
+      "variants": [
+        {
+          "option": "Default Title",
+          "price": 150000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/modern-serenity-oval-6-seater-dining-set-1.webp",
+        "/images/products/modern-serenity-oval-6-seater-dining-set-2.webp",
+        "/images/products/modern-serenity-oval-6-seater-dining-set-3.webp",
+        "/images/products/modern-serenity-oval-6-seater-dining-set-4.webp",
+        "/images/products/modern-serenity-oval-6-seater-dining-set-5.webp",
+        "/images/products/modern-serenity-oval-6-seater-dining-set-6.webp"
+      ],
+      "imageCount": 6,
+      "url": "https://www.modernfurniturepacificltd.com/products/modern-serenity-oval-6-seater-dining-set"
+    },
+    {
+      "id": 7902684282963,
+      "handle": "cozy-sofa",
+      "title": "Cozy Sofa",
+      "originalTitle": "COZY SOFA",
+      "type": "Sofa",
+      "category": "Living Room",
+      "collections": [
+        "living-room"
+      ],
+      "isNew": false,
+      "isBestSeller": false,
+      "vendor": "Modern Furniture Pacific",
+      "description": "Modern L-Shaped Sectional Sofa with Wooden Side Shelves Upgrade your living space with this stylish and spacious L-shaped sectional sofa designed for both comfort and elegance. Upholstered in soft, high-quality fabric, this sofa features plush cushions and a deep seating design that provides exceptional relaxation for family and guests. The contemporary design is complemented by built-in wooden side shelves, perfect for placing books, d\u00e9cor, or everyday essentials, adding both functionality and sophistication to your living room. Its sturdy wooden base ensures durability while the neutral colo",
+      "priceMin": 200000,
+      "priceMax": 200000,
+      "inStock": false,
+      "variants": [
+        {
+          "option": "9seater",
+          "price": 200000,
+          "available": false
+        }
+      ],
+      "images": [
+        "/images/products/cozy-sofa-1.jpg",
+        "/images/products/cozy-sofa-2.jpg"
+      ],
+      "imageCount": 2,
+      "url": "https://www.modernfurniturepacificltd.com/products/cozy-sofa"
+    }
+  ]
+}
