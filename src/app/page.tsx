@@ -1,134 +1,184 @@
 import Link from "next/link";
-import { business, displayImage, formatKES, productByHandle, whatsappLink } from "@/lib/data";
+import { business, productByHandle, whatsappLink } from "@/lib/data";
 
-// Homepage v4 — premium means FEW things, big, with room to breathe.
-// Three moments only: hero (1 visual), a two-piece section, a one-piece
-// spotlight, then a single closing action. No collection tiles, no card
-// grids, no About, no stats, no search. The catalogue lives on /shop and
-// the detail lives on the product pages. Every image here is stamp-free
-// (see displayImage in lib/data.ts).
+// Homepage v7 — the orange theme is back (cream, #f4530a, peach), because
+// that is what made the site beautiful. Structure follows the reference
+// Richie shared: each section is one clear graphic, a brief description,
+// and a PRIMARY action button (orange, filled), in a clean sans font.
+// No side-by-side images, no grids, no cards, no prices, no product names
+// on the scroll. The scroll is long and covers every section, one moment
+// at a time. Names, prices and buying live on /shop and the product pages.
+//
+// Graphics are the premium studio images Codex generated on the Mac
+// (premium/codex/): same sofas, seamless light-grey studio, soft light.
+// Hover: the graphic lifts, brightens, a warm light washes in — and where
+// a 3D view exists it crossfades in, so the piece turns in space.
 
-const hero = productByHandle("nova-sofa-set");
-const pieceA = productByHandle("benin-sofa");
-const pieceB = productByHandle("urban-nest-sofa-set");
-const spotlight = productByHandle("juventus-sofa-set");
-
-function Piece({ handle, large }: { handle: string; large?: boolean }) {
-  const p = productByHandle(handle);
-  if (!p) return null;
+function PrimaryButton({ href, children, white }: { href: string; children: React.ReactNode; white?: boolean }) {
   return (
-    <Link href={`/products/${p.handle}`} className="group block">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={displayImage(p)}
-        alt={p.title}
-        loading="lazy"
-        className={`w-full object-cover rounded-[2rem] group-hover:scale-[1.02] transition-transform duration-500 ${large ? "aspect-[16/10]" : "aspect-[4/3]"}`}
-      />
-      <h3 className="mt-5 text-xl font-extrabold group-hover:text-brand transition-colors">{p.title}</h3>
-      <p className="mt-1 text-brand font-extrabold">
-        {p.priceMin === p.priceMax ? formatKES(p.priceMin) : `From ${formatKES(p.priceMin)}`}
-      </p>
+    <Link
+      href={href}
+      className={`inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-bold transition-colors ${
+        white ? "bg-white text-brand hover:bg-peach" : "bg-brand text-white hover:bg-brand-dark"
+      }`}
+    >
+      {children} <span aria-hidden>↗</span>
     </Link>
   );
 }
 
+// One graphic. `view3d` (when it exists) crossfades in on hover.
+function Visual({ src, view3d, href }: { src: string; view3d?: string; href: string }) {
+  return (
+    <Link href={href} className="group block">
+      <div className="relative overflow-hidden rounded-[2.5rem] shadow-xl">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt=""
+          loading="lazy"
+          className="w-full aspect-[16/9] object-cover transition-all duration-700 group-hover:scale-[1.02] group-hover:brightness-110"
+        />
+        {view3d && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={view3d}
+            alt=""
+            aria-hidden
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+          />
+        )}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+          style={{ background: "radial-gradient(120% 90% at 50% 0%, rgba(255, 214, 170, 0.35), rgba(255, 214, 170, 0) 60%)" }}
+        />
+      </div>
+    </Link>
+  );
+}
+
+// One section: graphic, title, brief, one primary button.
+function Moment({
+  title, blurb, img, view3d, href, button,
+}: {
+  title: string; blurb: string; img: string; view3d?: string; href: string; button: string;
+}) {
+  return (
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+      <Visual src={img} view3d={view3d} href={href} />
+      <div className="mt-9 text-center">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-brand">{title}</h2>
+        <p className="text-muted leading-relaxed mt-3 max-w-md mx-auto">{blurb}</p>
+        <div className="mt-7">
+          <PrimaryButton href={href}>{button}</PrimaryButton>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
+  const hero = productByHandle("nova-sofa-set");
+  const living = productByHandle("benin-sofa");
+  const sofas = productByHandle("cozy-sofa");
+  const spotlight = productByHandle("juventus-sofa-set");
+
   return (
     <div>
-      {/* Hero — one visual, one headline, two actions, lots of air */}
-      <section className="relative overflow-hidden">
-        <div className="absolute -top-32 -left-32 w-[42rem] h-[42rem] bg-brand rounded-full" aria-hidden />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-14 items-center">
-          <div className="relative">
-            {hero && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={displayImage(hero)}
-                alt={hero.title}
-                className="relative rounded-[2.5rem] w-full aspect-[4/3] object-cover shadow-2xl"
+      {/* Hero — soft peach, orange headline, brief, primary button. */}
+      <section className="bg-peach">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-14 md:pt-16 md:pb-20 text-center">
+          <h1 className="text-5xl sm:text-6xl font-extrabold text-brand leading-[1.05]">
+            Make you<br />feel luxury
+          </h1>
+          <p className="mt-5 text-muted leading-relaxed max-w-md mx-auto">
+            Sofas, beds, dining sets and tables for Kenyan homes.
+          </p>
+          {hero && (
+            <div className="mt-10">
+              <Visual
+                src="/images/premium/nova-sofa-set-premium.jpg"
+                view3d="/images/premium/nova-sofa-set-3d.jpg"
+                href="/shop"
               />
-            )}
-          </div>
-          <div>
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-brand leading-[1.05]">
-              Make you<br />feel luxury
-            </h1>
-            <p className="mt-6 text-muted leading-relaxed max-w-md">
-              Sofas, beds, dining sets and tables for Kenyan homes.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/shop" className="rounded-full bg-brand text-white px-7 py-3.5 font-bold hover:bg-brand-dark transition-colors">
-                Shop now ↗
-              </Link>
-              <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-white border border-brand/30 px-7 py-3.5 font-bold hover:border-brand transition-colors"
-              >
-                Chat on WhatsApp ↗
-              </a>
             </div>
+          )}
+          <div className="mt-9 flex flex-wrap justify-center gap-3">
+            <PrimaryButton href="/shop">Shop now</PrimaryButton>
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-white border border-brand/30 px-7 py-3.5 font-bold hover:border-brand transition-colors"
+            >
+              Chat on WhatsApp <span aria-hidden>↗</span>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Two pieces, side by side — the "Modern art" moment */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-brand">Modern art</h2>
-        <p className="text-center text-muted mt-3">Two pieces. Made to be lived in.</p>
-        <div className="mt-12 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
-          {pieceA && <Piece handle={pieceA.handle} />}
-          {pieceB && <Piece handle={pieceB.handle} />}
-        </div>
-        <div className="mt-12 text-center">
-          <Link href="/shop" className="inline-flex rounded-full border-2 border-brand/40 px-7 py-3 font-bold hover:border-brand transition-colors">
-            View All
-          </Link>
-        </div>
-      </section>
-
-      {/* One piece, in focus — the spotlight */}
-      {spotlight && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-brand">{spotlight.title}</h2>
-              <p className="text-muted leading-relaxed mt-4 max-w-sm">
-                A statement set for the living room. See it in person, or order it on WhatsApp.
-              </p>
-              <p className="mt-4 text-2xl font-extrabold text-brand">
-                {spotlight.priceMin === spotlight.priceMax ? formatKES(spotlight.priceMin) : `From ${formatKES(spotlight.priceMin)}`}
-              </p>
-              <Link
-                href={`/products/${spotlight.handle}`}
-                className="mt-7 inline-flex rounded-full bg-brand text-white px-7 py-3.5 font-bold hover:bg-brand-dark transition-colors"
-              >
-                View Product ↗
-              </Link>
-            </div>
-            <Link href={`/products/${spotlight.handle}`} className="group block">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={displayImage(spotlight)}
-                alt={spotlight.title}
-                loading="lazy"
-                className="w-full aspect-[4/3] object-cover rounded-[2rem] group-hover:scale-[1.02] transition-transform duration-500"
-              />
-            </Link>
-          </div>
-        </section>
+      {/* Every section, one moment at a time. */}
+      {living && (
+        <Moment
+          title="Living Room"
+          blurb="Sofas and chairs to sink into at the end of the day."
+          img="/images/premium/benin-sofa-premium.jpg"
+          view3d="/images/premium/benin-sofa-3d.jpg"
+          href="/shop?category=Living%20Room"
+          button="Explore"
+        />
       )}
 
-      {/* One closing action */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20 pb-24">
+      <Moment
+        title="Bedroom"
+        blurb="Beds and bedroom sets for deep, quiet sleep."
+        img="/images/site/header.png"
+        href="/shop?category=Bedroom"
+        button="Explore"
+      />
+
+      {sofas && (
+        <Moment
+          title="Sofas"
+          blurb="Two pieces. Made to be lived in."
+          img="/images/premium/cozy-sofa-premium.jpg"
+          view3d="/images/premium/cozy-sofa-3d.jpg"
+          href="/shop?category=Living%20Room"
+          button="Explore"
+        />
+      )}
+
+      {spotlight && (
+        <Moment
+          title="The Statement"
+          blurb="A statement set for the living room. See it in person, or order it on WhatsApp."
+          img="/images/premium/juventus-sofa-set-premium.jpg"
+          view3d="/images/premium/juventus-sofa-set-3d.jpg"
+          href={`/products/${spotlight.handle}`}
+          button="View Product"
+        />
+      )}
+
+      <Moment
+        title="About Us"
+        blurb="Modern Furniture Pacific Ltd believes furniture is more than functional. It is the comfort you come home to."
+        img="/images/site/mf237.jpg"
+        href="/about"
+        button="More about us"
+      />
+
+      {/* Visit — orange panel, one primary button. */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-4">
         <div className="bg-brand text-white rounded-3xl p-8 sm:p-12 text-center">
           <p className="text-2xl sm:text-3xl font-extrabold">See it in person</p>
           <p className="text-white/85 mt-2">Ruiru · Kihunguro · Nyeri</p>
-          <Link href="/contact" className="mt-7 inline-flex rounded-full bg-white text-brand px-7 py-3.5 font-bold hover:bg-peach transition-colors">
-            Visit a showroom ↗
-          </Link>
+          <div className="mt-7">
+            <PrimaryButton href="/contact" white>
+              Visit a showroom
+            </PrimaryButton>
+          </div>
           <p className="text-white/70 text-sm mt-5">Call {business.phone.join(" or ")}</p>
         </div>
       </section>

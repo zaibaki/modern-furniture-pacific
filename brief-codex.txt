@@ -1,0 +1,20 @@
+You are working in /Users/apple/modern-furniture-pacific, a Next.js furniture site rebuild.
+
+TASK: restyle 4 product photos into premium studio images, using whatever image-generation or image-editing model/tool you have access to.
+
+INPUTS (already on disk, also attached to this prompt):
+- public/images/clean/nova-sofa-set.jpg (white 2-seater sofa)
+- public/images/clean/benin-sofa.jpg (taupe armchair/sofa with cushions)
+- public/images/clean/cozy-sofa.jpg (grey L-shaped sectional sofa)
+- public/images/clean/juventus-sofa-set.jpg (mauve 2-seater sofa)
+
+OUTPUT DIRECTORY (create it): premium/codex/
+
+FOR EACH input, make TWO images, 1600px wide, JPG, saved as:
+1. <handle>-premium.jpg — premium studio restyle of that exact sofa: same sofa, same shape, same fabric and colours, same cushions. Replace the background with a seamless light-grey studio backdrop (#ededed), soft diffused studio lighting, a gentle soft shadow under the furniture. Remove the shopfront, plants, wall signs, teal wall and any watermark or text. No people, no text in the image, furniture centred, photorealistic.
+2. <handle>-3d.jpg — the same sofa as a photorealistic 3D render, seen from a three-quarter angle, same seamless light-grey studio backdrop and soft lighting, no text, no people.
+
+RULES:
+- Do not change the sofa design, colour or proportions. If your tool cannot keep the sofa faithful, say so for that image instead of inventing a different sofa.
+- If you have no image-generation or image-editing tool at all, say so plainly in your final message and create NO output files. Do not just copy the inputs to the output directory and claim they are restyled.
+- When done, list every file you created with its size, and say plainly which ones (if any) you could not make and why.
