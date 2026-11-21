@@ -82,6 +82,8 @@ function Moment({
 export default function Home() {
   const hero = productByHandle("nova-sofa-set");
   const living = productByHandle("benin-sofa");
+  const dining = productByHandle("modern-majestic-6seater-dining-set");
+  const tables = productByHandle("elegant-coffee-table-white");
   const sofas = productByHandle("cozy-sofa");
   const spotlight = productByHandle("juventus-sofa-set");
 
@@ -126,7 +128,7 @@ export default function Home() {
           blurb="Sofas and chairs to sink into at the end of the day."
           img="/images/premium/benin-sofa-premium.jpg"
           view3d="/images/premium/benin-sofa-3d.jpg"
-          href="/shop?category=Living%20Room"
+          href="/collections/living-room"
           button="Explore"
         />
       )}
@@ -135,9 +137,31 @@ export default function Home() {
         title="Bedroom"
         blurb="Beds and bedroom sets for deep, quiet sleep."
         img="/images/site/header.png"
-        href="/shop?category=Bedroom"
+        href="/collections/bedroom"
         button="Explore"
       />
+
+      {dining && (
+        <Moment
+          title="Dining"
+          blurb="Dining tables and sets for family meals and hosting."
+          img="/images/premium/modern-majestic-6seater-dining-set-premium.jpg"
+          view3d="/images/premium/modern-majestic-6seater-dining-set-3d.jpg"
+          href="/collections/dining"
+          button="Explore"
+        />
+      )}
+
+      {tables && (
+        <Moment
+          title="Tables"
+          blurb="Coffee tables and TV stands to finish the room."
+          img="/images/premium/elegant-coffee-table-white-premium.jpg"
+          view3d="/images/premium/elegant-coffee-table-white-3d.jpg"
+          href="/collections/tables"
+          button="Explore"
+        />
+      )}
 
       {sofas && (
         <Moment
@@ -145,7 +169,7 @@ export default function Home() {
           blurb="Two pieces. Made to be lived in."
           img="/images/premium/cozy-sofa-premium.jpg"
           view3d="/images/premium/cozy-sofa-3d.jpg"
-          href="/shop?category=Living%20Room"
+          href={`/products/${sofas.handle}`}
           button="Explore"
         />
       )}

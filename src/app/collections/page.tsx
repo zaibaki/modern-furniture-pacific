@@ -17,10 +17,10 @@ export default function CollectionsPage() {
       <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {site.collections.filter((c) => c.handle !== "dressing-table").map((c) => {
           const img = productByHandle(TILE[c.handle])?.images[0];
-          const href = c.handle === "bedroom" ? "/shop?category=Dining"
-            : c.handle === "bedroom-1" ? "/shop?category=Bedroom"
-            : c.handle === "living-room" ? "/shop?category=Living%20Room"
-            : c.handle === "tables" ? "/shop?category=Tables" : "/shop";
+          const href = c.handle === "bedroom" ? "/collections/dining"
+            : c.handle === "bedroom-1" ? "/collections/bedroom"
+            : c.handle === "living-room" ? "/collections/living-room"
+            : c.handle === "tables" ? "/collections/tables" : "/shop";
           // Tables in this rebuild is the 3 non-dining tables; the other 3
           // in the original Tables collection are dining tables, shown under Dining.
           const shownCount = c.handle === "tables" ? 3 : c.count;

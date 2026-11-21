@@ -65,10 +65,132 @@ export const CLEAN_IMAGE_HANDLES = new Set([
   "juventus-sofa-set",
 ]);
 
+// Handles with Codex premium studio images (premium + 3D view) in
+// /images/premium/. Grows as the generation batches land; every surface
+// that shows a product photo (shop cards, category rows, related)
+// automatically uses the premium hero for these.
+export const PREMIUM_HANDLES = new Set([
+  "nova-sofa-set",
+  "benin-sofa",
+  "cozy-sofa",
+  "juventus-sofa-set",
+  "modern-majestic-6seater-dining-set",
+  "elegant-coffee-table-white",
+  "king-size-mahogany-bed-set-6x6",
+  // Codex batch 1 (2026-11-21)
+  "7-seater-semi-recliner-back",
+  "modern-copenhagen-7seater-corduroy-sofa",
+  "modern-vista-7seater-microfiber-sofa",
+  "mahogany-6-seater-classic",
+  "modern-serenity-dining-table",
+  "suede-standard-bed-5x6",
+  "5x6-chester-bed-cream",
+  // Codex batch 2 (2026-11-21)
+  "brown-recliner-7-seater",
+  "modern-austic-7-seater-microfiber-recliner-sofa-3-2-1-1",
+  "retractable-sofa",
+  "6-seater-dining-set",
+  "regal-oval-mahogany-dining-set",
+  "urban-nest-sofa-set",
+  "modena-sofa-set",
+  // Agy batch 3 (2026-11-21) — premium + 3D verified visually.
+  // modern-deluxe-solid-bed-5x6 NOT added yet: its 3D came back pale
+  // blonde with no bedding (wrong wood colour); re-render queued in
+  // batch 4. Its premium hero is already in /images/premium/.
+  "coffee-table-mahogany",
+  "modern-black-peachy-tv-stands",
+  "6x6-pacific-pocker-spring-mattress",
+  "double-decker-4x6-by-3-5x6",
+  "modern-timeless-bed-5x6",
+  "crown-mahogany-queen-size-bed-5x6",
+]);
+
+export function premiumImages(product: Product) {
+  if (!PREMIUM_HANDLES.has(product.handle)) return null;
+  return {
+    hero: `/images/premium/${product.handle}-premium.jpg`,
+    view3d: `/images/premium/${product.handle}-3d.jpg`,
+  };
+}
+
 export function displayImage(product: Product) {
+  if (PREMIUM_HANDLES.has(product.handle)) {
+    return `/images/premium/${product.handle}-premium.jpg`;
+  }
   return CLEAN_IMAGE_HANDLES.has(product.handle)
     ? `/images/clean/${product.handle}.jpg`
     : product.images[0];
+}
+
+// Shopify descriptions sometimes carry the seller's drafting notes:
+// a "Premium Product Description" prefix and a "2. Short Social Media
+// Caption" section that trails off mid-word (Juventus). Strip both so
+// customers only ever see the finished description.
+export function cleanDescription(product: Product) {
+  let d = (product.description || "").trim();
+  d = d.replace(/^(Premium Product Description|Product Description)\s*/i, "");
+  const cut = d.search(/2\.\s*Short Social Media Caption|Short Social Media Caption/i);
+  if (cut > 0) d = d.slice(0, cut).trim();
+  return d;
+}
+
+export type DescriptionFeature = { title: string; body: string };
+export type ParsedDescription = { intro: string; features: DescriptionFeature[] };
+
+// Turn a wall-of-text description into something a customer can scan:
+// a short intro plus a list of features (title + one short body each).
+// Handles the shapes the seller's copy actually comes in:
+//  - bullet lists ("• Individual Support: ... • No More Bouncing: ...")
+//    — the mattress, the unreadable one;
+//  - numbered marketing sections ("1. Simple & Elegant ... 2. Luxury
+//    Feel ...") — alternate captions, not product facts, so only the
+//    first section is kept, as the intro;
+//  - AI preambles ("Here is a professional website-ready product
+//    description ...") and private-use junk characters — stripped.
+export function parseDescription(product: Product): ParsedDescription {
+  let d = cleanDescription(product);
+  // Private-use junk characters (mangled emoji/checkmarks in the source).
+  d = d.replace(/[\uE000-\uF8FF]/g, " ");
+  d = d.replace(/^Here is a [^.]*?product description[^:]*:\s*/i, "");
+  d = d.replace(/\s+/g, " ").trim();
+
+  // Bullet features.
+  if (/[•●]/.test(d)) {
+    const parts = d.split(/[•●]/).map((s) => s.trim()).filter(Boolean);
+    const features: DescriptionFeature[] = [];
+    let intro = "";
+    for (const part of parts) {
+      const colon = part.indexOf(":");
+      if (colon > 2 && colon < 60) {
+        features.push({ title: part.slice(0, colon).trim(), body: part.slice(colon + 1).trim() });
+      } else if (features.length === 0 && !intro) {
+        intro = part;
+      } else {
+        features.push({ title: "", body: part });
+      }
+    }
+    return { intro, features };
+  }
+
+  // Numbered sections: keep only the first, as the intro.
+  const numbered = d.match(/\d+\.\s+/);
+  if (numbered && numbered.index !== undefined && numbered.index > 0) {
+    // Text before the first number is the intro (e.g. Retractable's
+    // opening quote); the numbered captions after it are dropped.
+    const second = d.search(/(?<!^)\s2\.\s/);
+    const intro = (second > 0 ? d.slice(0, second) : d).replace(/^["“”]/, "").replace(/["”]$/, "").trim();
+    return { intro, features: [] };
+  }
+  if (numbered && numbered.index === 0) {
+    // Starts with "1. Title ..." — drop the label, keep the section's
+    // body up to "2." as the intro.
+    const second = d.search(/\s2\.\s/);
+    let intro = second > 0 ? d.slice(0, second) : d;
+    intro = intro.replace(/^\d+\.\s*[^"“”]{2,60}?\s*[“"']/, "").replace(/^["“”]/, "").trim();
+    return { intro, features: [] };
+  }
+
+  return { intro: d, features: [] };
 }
 
 export function productByHandle(handle: string) {
