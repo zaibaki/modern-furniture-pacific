@@ -94,15 +94,24 @@ export const PREMIUM_HANDLES = new Set([
   "urban-nest-sofa-set",
   "modena-sofa-set",
   // Agy batch 3 (2026-11-21) — premium + 3D verified visually.
-  // modern-deluxe-solid-bed-5x6 NOT added yet: its 3D came back pale
-  // blonde with no bedding (wrong wood colour); re-render queued in
-  // batch 4. Its premium hero is already in /images/premium/.
   "coffee-table-mahogany",
   "modern-black-peachy-tv-stands",
   "6x6-pacific-pocker-spring-mattress",
   "double-decker-4x6-by-3-5x6",
   "modern-timeless-bed-5x6",
   "crown-mahogany-queen-size-bed-5x6",
+  // Codex batch 4 (2026-11-21) — premium + 3D verified visually.
+  // Includes the modern-deluxe-solid-bed-5x6 3D redo: batch 3's came
+  // back pale blonde with no bedding, the redo matches the honey-amber
+  // wood and white bedding. All 35 products now have premium images.
+  "modern-celine-chester-7seater-sofa-3-2-1-1",
+  "modern-asmara-7-seater-corduroy-sofa",
+  "stripe-design-bed-5x6",
+  "napoli-sofa",
+  "modern-cuddle-microfibre-recliner-sofa-6-seater-3-2-1",
+  "sofa-set-silver-stripe-5-seater",
+  "modern-serenity-oval-6-seater-dining-set",
+  "modern-deluxe-solid-bed-5x6",
 ]);
 
 export function premiumImages(product: Product) {
