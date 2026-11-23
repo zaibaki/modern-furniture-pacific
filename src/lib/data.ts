@@ -1,4 +1,5 @@
 import raw from "@/data/products.json";
+import { supabase, isSupabaseConfigured } from "./supabase";
 
 export type Variant = { option: string; price: number; available: boolean };
 export type Product = {
@@ -39,7 +40,190 @@ export type SiteData = {
   products: Product[];
 };
 
-export const site = raw as unknown as SiteData;
+// The catalogue as baked into the repo. This is the fallback: it is what
+// the site renders today, and what it keeps rendering whenever Supabase
+// is not configured or not reachable.
+const jsonSite = raw as unknown as SiteData;
+
+// Collection titles as listed on the original Shopify store. The slugs
+// are the source of truth for counts (products carry them in their
+// `collections` array); the titles are NOT derivable from the slug —
+// "bedroom" is the Dining collection on the original site, and
+// "bedroom-1" is Bedroom. Keep this map in sync with the collections
+// page's TILE/href tables.
+const COLLECTION_TITLES: Record<string, string> = {
+  "living-room": "Living Room",
+  "bedroom-1": "Bedroom",
+  bedroom: "Dining",
+  tables: "Tables",
+  "dressing-table": "Dressing Tables",
+};
+
+// Row shapes returned by the Supabase queries below. The joins embed the
+// category name, variants and images on each product row.
+type SupabaseProductRow = {
+  shopify_id: number;
+  handle: string;
+  title: string;
+  original_title: string | null;
+  type: string | null;
+  categories: { name: string } | { name: string }[] | null;
+  collections: string[] | null;
+  is_new: boolean;
+  is_best_seller: boolean;
+  vendor: string | null;
+  description: string | null;
+  price_min: number | string;
+  price_max: number | string;
+  in_stock: boolean;
+  original_url: string | null;
+  product_variants: {
+    option: string;
+    price: number | string;
+    available: boolean;
+    position: number;
+  }[];
+  product_images: { path: string; position: number }[];
+};
+
+type SupabaseBusinessRow = {
+  name: string;
+  tagline: string | null;
+  phone: string[] | null;
+  whatsapp: string | null;
+  email: string | null;
+  hours: string | null;
+  showrooms: { name: string; location: string }[] | null;
+  source_url: string | null;
+};
+
+// Map one Supabase product row onto the Product shape the pages consume.
+// Pure function, exported so it can be tested against real DB rows.
+export function mapSupabaseProduct(row: SupabaseProductRow): Product {
+  const variants = [...(row.product_variants ?? [])]
+    .sort((a, b) => a.position - b.position)
+    .map((v) => ({
+      option: v.option,
+      price: Number(v.price),
+      available: v.available,
+    }));
+  const images = [...(row.product_images ?? [])]
+    .sort((a, b) => a.position - b.position)
+    .map((i) => i.path);
+  return {
+    id: Number(row.shopify_id),
+    handle: row.handle,
+    title: row.title,
+    originalTitle: row.original_title ?? row.title,
+    type: row.type ?? "",
+    // PostgREST returns the many-to-one category as a single object;
+    // the client's types describe it as an array, so accept both.
+    category: Array.isArray(row.categories)
+      ? row.categories[0]?.name ?? ""
+      : row.categories?.name ?? "",
+    collections: row.collections ?? [],
+    isNew: row.is_new,
+    isBestSeller: row.is_best_seller,
+    vendor: row.vendor ?? "",
+    description: row.description ?? "",
+    priceMin: Number(row.price_min),
+    priceMax: Number(row.price_max),
+    inStock: row.in_stock,
+    variants,
+    images,
+    imageCount: images.length,
+    url: row.original_url ?? "",
+  };
+}
+
+// Build the SiteData the pages consume from Supabase rows. Pure function,
+// exported so it can be tested against real DB rows.
+export function siteDataFromSupabaseRows(
+  productRows: SupabaseProductRow[],
+  businessRow: SupabaseBusinessRow | null,
+): SiteData | null {
+  if (productRows.length === 0 || !businessRow) return null;
+  const products = productRows.map(mapSupabaseProduct);
+  return {
+    business: {
+      name: businessRow.name,
+      tagline: businessRow.tagline ?? "",
+      phone: businessRow.phone ?? [],
+      whatsapp: businessRow.whatsapp ?? "",
+      email: businessRow.email ?? "",
+      hours: businessRow.hours ?? "",
+      showrooms: businessRow.showrooms ?? [],
+      // Provenance of the original Shopify fetch — the values the JSON
+      // carries. They describe where the seed came from, not live data,
+      // and no page renders them (layout hardcodes the fetch date).
+      source: businessRow.source_url ?? "",
+      fetched: jsonSite.business.fetched,
+      note: jsonSite.business.note,
+    },
+    collections: Object.entries(COLLECTION_TITLES).map(([handle, title]) => ({
+      handle,
+      title,
+      count: products.filter((p) => p.collections.includes(handle)).length,
+    })),
+    products,
+  };
+}
+
+// Fetch the whole catalogue from Supabase. Throws on any query error so
+// the caller falls back to the local JSON — a dead or empty backend must
+// never blank the live site.
+async function fetchSiteDataFromSupabase(): Promise<SiteData | null> {
+  if (!supabase) return null;
+  const [productsRes, businessRes] = await Promise.all([
+    supabase
+      .from("products")
+      .select(
+        "shopify_id, handle, title, original_title, type, categories(name), collections, is_new, is_best_seller, vendor, description, price_min, price_max, in_stock, original_url, product_variants(option, price, available, position), product_images(path, position)",
+      )
+      .order("position", { ascending: true })
+      .order("position", { referencedTable: "product_variants", ascending: true })
+      .order("position", { referencedTable: "product_images", ascending: true }),
+    supabase
+      .from("business_info")
+      .select("name, tagline, phone, whatsapp, email, hours, showrooms, source_url")
+      .limit(1),
+  ]);
+  if (productsRes.error) throw new Error(`products: ${productsRes.error.message}`);
+  if (businessRes.error) throw new Error(`business_info: ${businessRes.error.message}`);
+  return siteDataFromSupabaseRows(
+    (productsRes.data ?? []) as SupabaseProductRow[],
+    (businessRes.data?.[0] ?? null) as SupabaseBusinessRow | null,
+  );
+}
+
+// Load the catalogue: Supabase when configured, local JSON otherwise.
+// The fetch is capped at 10s and any failure falls back to the JSON, so
+// the site keeps rendering with the baked-in data until the live project
+// exists and answers.
+async function loadSiteData(): Promise<SiteData> {
+  if (!isSupabaseConfigured) return jsonSite;
+  try {
+    const data = await Promise.race([
+      fetchSiteDataFromSupabase().catch(() => null),
+      new Promise<null>((resolve) => setTimeout(() => resolve(null), 10_000)),
+    ]);
+    if (!data || data.products.length === 0) {
+      console.warn("[data] Supabase returned no usable catalogue, using local products.json");
+      return jsonSite;
+    }
+    return data;
+  } catch (err) {
+    console.warn("[data] Supabase fetch failed, using local products.json:", err);
+    return jsonSite;
+  }
+}
+
+// NOTE: top-level await. Every importer is a server component, so module
+// evaluation happens on the server at build/prerender time (or once per
+// server process for dynamic routes). With no env vars set this resolves
+// immediately to the JSON; with env vars set it fetches once and the
+// result is what every page renders.
+export const site: SiteData = await loadSiteData();
 export const products: Product[] = site.products;
 export const business = site.business;
 
