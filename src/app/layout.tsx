@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import { business, whatsappLink } from "@/lib/data";
+import SalesAssistant from "@/components/SalesAssistant";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -103,6 +104,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             © 2026 Modern Furniture Pacific Ltd. Premium rebuild — product data and photos from modernfurniturepacificltd.com, fetched 21 Nov 2026.
           </div>
         </footer>
+        <SalesAssistant />
       </body>
     </html>
   );
