@@ -484,14 +484,24 @@ export default function SalesAssistant() {
                 Live prices · 3D &amp; studio views · WhatsApp order
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              aria-label="Close assistant"
-              className="w-7 h-7 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-sm font-bold cursor-pointer"
-            >
-              ✕
-            </button>
+            <div className="flex items-center gap-1.5">
+              <a
+                href="https://wa.me/254716335555?text=Hi%20Modern%20Furniture%20Pacific%2C%20I%20would%20like%20to%20speak%20with%20a%20human%20sales%20representative."
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full bg-white/15 hover:bg-white/25 px-2.5 py-1 text-[11px] font-bold text-white transition-colors"
+              >
+                Talk to human ↗
+              </a>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Close assistant"
+                className="w-7 h-7 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-sm font-bold cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
           </div>
 
           <div className="flex-1 overflow-y-auto p-3.5 space-y-3">
