@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "Modern Furniture Pacific Ltd — Make you feel luxury",
   description:
     "Premium sofas, beds, dining sets and tables in Kenya. Visit our showrooms in Ruiru, Kihunguro and Nyeri. Prices from KSh 6,000.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+  },
 };
 
 const NAV = [
