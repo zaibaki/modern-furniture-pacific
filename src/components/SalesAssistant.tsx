@@ -43,6 +43,18 @@ function renderInline(text: string) {
           </a>
         );
       }
+    } else if (tok.startsWith("https://wa.me/")) {
+      parts.push(
+        <a
+          key={k++}
+          href={tok}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1 rounded-full bg-[#25D366] text-white px-2.5 py-0.5 text-xs font-bold hover:brightness-95 align-baseline"
+        >
+          Chat on WhatsApp ↗
+        </a>
+      );
     } else {
       parts.push(
         <a
@@ -199,6 +211,121 @@ function AssistantProductCard({ item }: { item: AssistantProduct }) {
   );
 }
 
+function MessageActions({
+  message,
+  onSend,
+  disabled,
+}: {
+  message: ChatMsg;
+  onSend: (text: string) => void;
+  disabled: boolean;
+}) {
+  if (message.role !== "assistant") return null;
+
+  const text = message.content;
+  const lower = text.toLowerCase();
+  const waMatch = text.match(/https:\/\/wa\.me\/[^\s)]+/);
+  const mentionsWa =
+    Boolean(message.whatsapp_shortlist_link) ||
+    Boolean(waMatch) ||
+    lower.includes("whatsapp") ||
+    /(\+?254|0)716\s*335\s*555/.test(text);
+
+  const whatsappHref =
+    message.whatsapp_shortlist_link ||
+    (waMatch ? waMatch[0] : "https://wa.me/254716335555");
+  const whatsappLabel = message.whatsapp_shortlist_link
+    ? "Send shortlist on WhatsApp ↗"
+    : "Chat on WhatsApp ↗";
+
+  const phoneMatch = text.match(/(?:\+?254|0)7\d{2}[\s-]?\d{6}/);
+  const phoneHref = phoneMatch
+    ? `tel:${phoneMatch[0].replace(/[\s-]/g, "").replace(/^0/, "+254")}`
+    : null;
+  const phoneLabel = phoneMatch ? `Call ${phoneMatch[0]}` : null;
+
+  const emailMatch = text.match(
+    /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/
+  );
+  const mentionsShowroom = /\b(showroom|ruiru|kihunguro|nyeri)\b/i.test(text);
+
+  const inStockProducts = (message.products || []).filter((p) => p.in_stock);
+
+  const hasAny =
+    mentionsWa ||
+    phoneHref ||
+    emailMatch ||
+    mentionsShowroom ||
+    inStockProducts.length >= 1;
+
+  if (!hasAny) return null;
+
+  return (
+    <div className="mt-2 flex flex-wrap gap-1.5">
+      {mentionsWa && (
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366] text-white px-3.5 py-1.5 text-xs font-bold shadow-xs hover:brightness-95 transition-all"
+        >
+          {whatsappLabel}
+        </a>
+      )}
+      {phoneHref && phoneLabel && (
+        <a
+          href={phoneHref}
+          className="inline-flex items-center gap-1 rounded-full border border-brand text-brand bg-white px-3 py-1.5 text-xs font-bold hover:bg-brand hover:text-white transition-colors"
+        >
+          {phoneLabel}
+        </a>
+      )}
+      {emailMatch && (
+        <a
+          href={`mailto:${emailMatch[0]}`}
+          className="inline-flex items-center gap-1 rounded-full border border-peach-dark bg-white text-ink px-3 py-1.5 text-xs font-semibold hover:border-brand hover:text-brand transition-colors"
+        >
+          Email {emailMatch[0]}
+        </a>
+      )}
+      {mentionsShowroom && (
+        <Link
+          href="/contact"
+          className="inline-flex items-center gap-1 rounded-full border border-peach-dark bg-white text-ink px-3 py-1.5 text-xs font-semibold hover:border-brand hover:text-brand transition-colors"
+        >
+          Showrooms &amp; Map →
+        </Link>
+      )}
+      {inStockProducts.length >= 2 && (
+        <button
+          type="button"
+          disabled={disabled}
+          onClick={() =>
+            onSend(
+              `Compare ${inStockProducts[0].title} and ${inStockProducts[1].title}`
+            )
+          }
+          className="inline-flex items-center gap-1 rounded-full bg-peach hover:bg-peach-dark text-ink px-3 py-1.5 text-xs font-semibold transition-colors cursor-pointer disabled:opacity-40"
+        >
+          Compare top 2
+        </button>
+      )}
+      {inStockProducts.length === 1 && (
+        <button
+          type="button"
+          disabled={disabled}
+          onClick={() =>
+            onSend(`Show full details and variants for ${inStockProducts[0].title}`)
+          }
+          className="inline-flex items-center gap-1 rounded-full bg-peach hover:bg-peach-dark text-ink px-3 py-1.5 text-xs font-semibold transition-colors cursor-pointer disabled:opacity-40"
+        >
+          Full details &amp; variants
+        </button>
+      )}
+    </div>
+  );
+}
+
 export default function SalesAssistant() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -319,16 +446,11 @@ export default function SalesAssistant() {
                   </div>
                 )}
 
-                {m.whatsapp_shortlist_link && (
-                  <a
-                    href={m.whatsapp_shortlist_link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-[#25D366] text-white px-3.5 py-1.5 text-xs font-bold shadow-xs hover:brightness-95 transition-all"
-                  >
-                    Send shortlist on WhatsApp ↗
-                  </a>
-                )}
+                <MessageActions
+                  message={m}
+                  onSend={send}
+                  disabled={loading}
+                />
               </div>
             ))}
 
