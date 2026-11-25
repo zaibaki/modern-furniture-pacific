@@ -1,7 +1,111 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+
+function renderInline(text: string) {
+  const tokenRe =
+    /(\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\(https?:\/\/[^)]+\)|https?:\/\/[^\s)]+)/g;
+  const parts: React.ReactNode[] = [];
+  let last = 0;
+  let match: RegExpExecArray | null;
+  let k = 0;
+
+  while ((match = tokenRe.exec(text)) !== null) {
+    if (match.index > last) {
+      parts.push(<Fragment key={k++}>{text.slice(last, match.index)}</Fragment>);
+    }
+    const tok = match[0];
+    if (tok.startsWith("**") && tok.endsWith("**")) {
+      parts.push(
+        <strong key={k++} className="font-bold">
+          {tok.slice(2, -2)}
+        </strong>
+      );
+    } else if (tok.startsWith("*") && tok.endsWith("*")) {
+      parts.push(
+        <em key={k++} className="italic">
+          {tok.slice(1, -1)}
+        </em>
+      );
+    } else if (tok.startsWith("[")) {
+      const m = tok.match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/);
+      if (m) {
+        parts.push(
+          <a
+            key={k++}
+            href={m[2]}
+            target="_blank"
+            rel="noreferrer"
+            className="underline font-semibold hover:text-brand"
+          >
+            {m[1]}
+          </a>
+        );
+      }
+    } else {
+      parts.push(
+        <a
+          key={k++}
+          href={tok}
+          target="_blank"
+          rel="noreferrer"
+          className="underline font-semibold break-all hover:text-brand"
+        >
+          {tok}
+        </a>
+      );
+    }
+    last = tokenRe.lastIndex;
+  }
+
+  if (last < text.length) {
+    parts.push(<Fragment key={k++}>{text.slice(last)}</Fragment>);
+  }
+  return parts;
+}
+
+function FormattedMessage({ content }: { content: string }) {
+  const blocks = content.trim().split(/\n{2,}/);
+  return (
+    <div className="space-y-2">
+      {blocks.map((block, bIdx) => {
+        const lines = block.split("\n");
+        const isOrdered = lines.every((l) => /^\d+\.\s+/.test(l.trim()));
+        const isBullet = lines.every((l) => /^[-*•]\s+/.test(l.trim()));
+
+        if (isOrdered) {
+          return (
+            <ol key={bIdx} className="list-decimal pl-4 space-y-1">
+              {lines.map((l, i) => (
+                <li key={i}>{renderInline(l.trim().replace(/^\d+\.\s+/, ""))}</li>
+              ))}
+            </ol>
+          );
+        }
+        if (isBullet) {
+          return (
+            <ul key={bIdx} className="list-disc pl-4 space-y-1">
+              {lines.map((l, i) => (
+                <li key={i}>{renderInline(l.trim().replace(/^[-*•]\s+/, ""))}</li>
+              ))}
+            </ul>
+          );
+        }
+        return (
+          <p key={bIdx} className="leading-relaxed">
+            {lines.map((l, i) => (
+              <Fragment key={i}>
+                {i > 0 && <br />}
+                {renderInline(l)}
+              </Fragment>
+            ))}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
 
 interface AssistantProduct {
   handle: string;
@@ -187,13 +291,17 @@ export default function SalesAssistant() {
                 }`}
               >
                 <div
-                  className={`max-w-[88%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap ${
+                  className={`max-w-[88%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
                     m.role === "user"
                       ? "bg-brand text-white rounded-br-sm"
                       : "bg-white border border-peach-dark text-ink rounded-bl-sm"
                   }`}
                 >
-                  {m.content}
+                  {m.role === "user" ? (
+                    m.content
+                  ) : (
+                    <FormattedMessage content={m.content} />
+                  )}
                 </div>
 
                 {m.products && m.products.length > 0 && (
