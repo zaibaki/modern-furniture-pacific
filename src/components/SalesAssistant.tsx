@@ -2,6 +2,7 @@
 
 import { Fragment, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import OrderStepperModal, { type OrderProduct } from "./OrderStepperModal";
 
 function renderInline(text: string) {
   const tokenRe =
@@ -189,6 +190,7 @@ interface AssistantProduct {
   image_3d: string;
   product_url: string;
   whatsapp_link: string;
+  variants?: { option: string; price: number; available: boolean }[];
 }
 
 interface ChatMsg {
@@ -205,7 +207,13 @@ const STARTERS = [
   "Showroom locations & hours",
 ];
 
-function AssistantProductCard({ item }: { item: AssistantProduct }) {
+function AssistantProductCard({
+  item,
+  onOrder,
+}: {
+  item: AssistantProduct;
+  onOrder: (product: OrderProduct) => void;
+}) {
   const [view3d, setView3d] = useState(false);
 
   return (
@@ -260,14 +268,13 @@ function AssistantProductCard({ item }: { item: AssistantProduct }) {
             Details
           </Link>
           {item.in_stock && (
-            <a
-              href={item.whatsapp_link}
-              target="_blank"
-              rel="noreferrer"
-              className="flex-1 text-center rounded-full bg-brand px-2 py-1 text-[11px] font-semibold text-white hover:bg-brand-dark transition-colors"
+            <button
+              type="button"
+              onClick={() => onOrder(item)}
+              className="flex-1 text-center rounded-full bg-brand px-2 py-1 text-[11px] font-semibold text-white hover:bg-brand-dark transition-colors cursor-pointer"
             >
               Order
-            </a>
+            </button>
           )}
         </div>
       </div>
@@ -392,6 +399,7 @@ function MessageActions({
 
 export default function SalesAssistant() {
   const [open, setOpen] = useState(false);
+  const [orderProduct, setOrderProduct] = useState<OrderProduct | null>(null);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMsg[]>([
@@ -460,7 +468,13 @@ export default function SalesAssistant() {
   return (
     <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-3">
       {open && (
-        <div className="w-[calc(100vw-2rem)] sm:w-[400px] h-[540px] max-h-[80vh] rounded-3xl bg-cream border border-peach-dark shadow-2xl flex flex-col overflow-hidden">
+        <div className="relative w-[calc(100vw-2rem)] sm:w-[400px] h-[540px] max-h-[80vh] rounded-3xl bg-cream border border-peach-dark shadow-2xl flex flex-col overflow-hidden">
+          {orderProduct && (
+            <OrderStepperModal
+              product={orderProduct}
+              onClose={() => setOrderProduct(null)}
+            />
+          )}
           <div className="bg-brand text-white px-4 py-3 flex items-center justify-between">
             <div>
               <p className="font-extrabold text-sm leading-tight">
@@ -505,7 +519,11 @@ export default function SalesAssistant() {
                 {m.products && m.products.length > 0 && (
                   <div className="mt-2 w-full grid grid-cols-2 gap-2">
                     {m.products.map((p) => (
-                      <AssistantProductCard key={p.handle} item={p} />
+                      <AssistantProductCard
+                        key={p.handle}
+                        item={p}
+                        onOrder={setOrderProduct}
+                      />
                     ))}
                   </div>
                 )}
