@@ -28,7 +28,7 @@ export default function CollectionsPage() {
             <Link key={c.handle} href={href} className="group relative block rounded-[2rem] overflow-hidden bg-brand text-white min-h-[260px]">
               {img && (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={img} alt={c.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src={img} alt={c.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-in-out" />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/90 via-brand/30 to-transparent" />
               <div className="relative p-6 flex flex-col justify-end h-full min-h-[260px]">

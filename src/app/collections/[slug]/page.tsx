@@ -66,7 +66,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               <img
                 src={cat.hero}
                 alt={cat.title}
-                className="w-full aspect-[16/9] object-cover transition-all duration-700 group-hover:scale-[1.02] group-hover:brightness-110"
+                className="w-full aspect-[16/9] object-cover transition-all duration-[1800ms] ease-in-out group-hover:scale-[1.02] group-hover:brightness-110"
               />
               {cat.hero3d && (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -75,7 +75,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                   alt=""
                   aria-hidden
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                  className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-[1800ms] ease-in-out group-hover:opacity-100"
                 />
               )}
             </div>

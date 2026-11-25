@@ -15,7 +15,7 @@ export default function ProductCard({ product }: { product: Product }) {
           src={displayImage(product)}
           alt={product.title}
           loading="lazy"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-in-out"
         />
         {!product.inStock && (
           <span className="absolute top-3 right-3 bg-black/80 text-white text-xs font-bold px-2.5 py-1 rounded-full">Sold out</span>

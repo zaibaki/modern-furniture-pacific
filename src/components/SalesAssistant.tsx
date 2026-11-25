@@ -135,16 +135,23 @@ const STARTERS = [
 
 function AssistantProductCard({ item }: { item: AssistantProduct }) {
   const [view3d, setView3d] = useState(false);
-  const imgSrc = view3d ? item.image_3d : item.premium_image;
 
   return (
     <div className="rounded-2xl border border-peach-dark bg-white overflow-hidden shadow-xs">
-      <div className="relative aspect-[4/3] bg-peach">
+      <div className="relative aspect-[4/3] bg-peach overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={imgSrc}
-          alt={`${item.title} (${view3d ? "3D view" : "Studio view"})`}
+          src={item.premium_image}
+          alt={`${item.title} (Studio view)`}
           className="w-full h-full object-cover"
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={item.image_3d}
+          alt={`${item.title} (3D view)`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
+            view3d ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         />
         <button
           type="button"

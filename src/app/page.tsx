@@ -37,7 +37,7 @@ function Visual({ src, view3d, href }: { src: string; view3d?: string; href: str
           src={src}
           alt=""
           loading="lazy"
-          className="w-full aspect-[16/9] object-cover transition-all duration-700 group-hover:scale-[1.02] group-hover:brightness-110"
+          className="w-full aspect-[16/9] object-cover transition-all duration-[1800ms] ease-in-out group-hover:scale-[1.02] group-hover:brightness-110"
         />
         {view3d && (
           // eslint-disable-next-line @next/next/no-img-element
@@ -46,12 +46,12 @@ function Visual({ src, view3d, href }: { src: string; view3d?: string; href: str
             alt=""
             aria-hidden
             loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+            className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-[1800ms] ease-in-out group-hover:opacity-100"
           />
         )}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-[1800ms] ease-in-out group-hover:opacity-100"
           style={{ background: "radial-gradient(120% 90% at 50% 0%, rgba(255, 214, 170, 0.35), rgba(255, 214, 170, 0) 60%)" }}
         />
       </div>
