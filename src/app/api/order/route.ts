@@ -47,10 +47,52 @@ export async function POST(req: NextRequest) {
       lines.join("\n")
     )}`;
 
+    const supabaseUrl = (
+      process.env.SUPABASE_URL ||
+      process.env.NEXT_PUBLIC_SUPABASE_URL ||
+      ""
+    ).replace(/\/$/, "");
+    const supabaseKey =
+      process.env.SUPABASE_SERVICE_ROLE_KEY ||
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+      "";
+
+    let persisted = false;
+    if (supabaseUrl && supabaseKey) {
+      const insertRes = await fetch(`${supabaseUrl}/rest/v1/orders`, {
+        method: "POST",
+        headers: {
+          apikey: supabaseKey,
+          Authorization: `Bearer ${supabaseKey}`,
+          "Content-Type": "application/json",
+          Prefer: "return=minimal",
+        },
+        body: JSON.stringify({
+          reference,
+          product_handle: body.productHandle?.trim() || "unknown",
+          product_title: title,
+          product_price: body.productPrice?.trim() || null,
+          option: body.option?.trim() || null,
+          quantity: qty,
+          customer_name: name,
+          phone,
+          location,
+          notes: body.notes?.trim() || null,
+          status: "new",
+          whatsapp_link,
+        }),
+      });
+      persisted = insertRes.ok;
+      if (!insertRes.ok) {
+        console.error("Supabase order insert failed:", await insertRes.text());
+      }
+    }
+
     return NextResponse.json({
       ok: true,
       reference,
       whatsapp_link,
+      persisted,
     });
   } catch (err) {
     console.error("Order submission error:", err);
