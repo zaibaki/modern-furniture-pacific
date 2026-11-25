@@ -77,6 +77,19 @@ function renderInline(text: string) {
   return parts;
 }
 
+function parseTableRow(line: string): string[] {
+  return line
+    .trim()
+    .replace(/^\|/, "")
+    .replace(/\|$/, "")
+    .split("|")
+    .map((c) => c.trim());
+}
+
+function isTableSeparator(line: string): boolean {
+  return /^\|?(\s*:?-{2,}:?\s*\|)+\s*:?-{2,}:?\s*\|?$/.test(line.trim());
+}
+
 function FormattedMessage({ content }: { content: string }) {
   const blocks = content.trim().split(/\n{2,}/);
   return (
@@ -85,6 +98,53 @@ function FormattedMessage({ content }: { content: string }) {
         const lines = block.split("\n");
         const isOrdered = lines.every((l) => /^\d+\.\s+/.test(l.trim()));
         const isBullet = lines.every((l) => /^[-*•]\s+/.test(l.trim()));
+        const isTable =
+          lines.length >= 2 &&
+          lines[0].includes("|") &&
+          isTableSeparator(lines[1]) &&
+          lines.slice(2).every((l) => l.includes("|"));
+
+        if (isTable) {
+          const headers = parseTableRow(lines[0]);
+          const rows = lines.slice(2).map(parseTableRow);
+          return (
+            <div
+              key={bIdx}
+              className="overflow-x-auto rounded-xl border border-peach-dark bg-cream/50"
+            >
+              <table className="w-full text-xs border-collapse text-left">
+                <thead className="bg-peach/70 text-ink">
+                  <tr>
+                    {headers.map((h, i) => (
+                      <th
+                        key={i}
+                        className="px-2.5 py-1.5 font-bold border-b border-peach-dark whitespace-nowrap"
+                      >
+                        {renderInline(h)}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-peach-dark/60">
+                  {rows.map((row, rIdx) => (
+                    <tr key={rIdx} className="bg-white/80">
+                      {headers.map((_, cIdx) => (
+                        <td
+                          key={cIdx}
+                          className={`px-2.5 py-1.5 align-top ${
+                            cIdx === 0 ? "font-semibold text-ink" : ""
+                          }`}
+                        >
+                          {renderInline(row[cIdx] || "")}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
 
         if (isOrdered) {
           return (
@@ -182,6 +242,8 @@ function AssistantProductCard({ item }: { item: AssistantProduct }) {
         <div className="flex items-start justify-between gap-2">
           <Link
             href={item.product_url}
+            target="_blank"
+            rel="noreferrer"
             className="text-xs font-bold text-ink hover:text-brand leading-snug line-clamp-2"
           >
             {item.title}
@@ -191,6 +253,8 @@ function AssistantProductCard({ item }: { item: AssistantProduct }) {
         <div className="flex items-center gap-1.5 pt-0.5">
           <Link
             href={item.product_url}
+            target="_blank"
+            rel="noreferrer"
             className="flex-1 text-center rounded-full border border-peach-dark px-2 py-1 text-[11px] font-semibold text-ink hover:border-brand hover:text-brand transition-colors"
           >
             Details
